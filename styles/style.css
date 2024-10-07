@@ -5,10 +5,24 @@ body {
     background-color: #f4f4f4;
 }
 
-span {
-    font-family: Arial, sans-serif;
-    font-size: 3em
+header {
+height: 100%;
+            margin: 0;
+            display: flex;
+            align-items: left;
+            justify-content: left;
 }
+
+span {
+    font-family: Tahoma, sans-serif;
+    text-align: left;
+    align-items: left; 
+    padding: 1%;
+    font-size: 4em
+}
+
+
+
 
 header, footer {
     background-color: #333;
