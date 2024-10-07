@@ -3,6 +3,12 @@ Project for webdevelopment class 2024:
 
 My goals: Primary usecase is mobile, as turist will use mobile.
 
+Company: Small company offering guided walking tours of Copenhagen
+
+Competition: At least 10 similar companies to compare solutions
+
+
+
 
 
 
