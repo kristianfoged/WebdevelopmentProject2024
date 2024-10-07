@@ -10,15 +10,15 @@ header {
 height: 100%;
             margin: 0;
             display: flex;
-            align-items: left;
+            align-items: middle;
             vertical-align: middle;
-            justify-content: left;
+            justify-content: lmiddle;
 }
 
 span {
     font-family: Tahoma, sans-serif;
     text-align: center;
-    align-items: left; 
+    align-items: middle; 
     vertical-align: middle;
     padding: 1%;
     font-size: 4em
