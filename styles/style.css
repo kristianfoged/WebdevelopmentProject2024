@@ -23,18 +23,23 @@ header ul {
 span {
     font-family: Tahoma, sans-serif;
     text-align: center;
-    align-items: middle; 
+    align-items: left; 
     vertical-align: middle;
     
     padding: 1%;
     font-size: 4em
 }
 
-span2 {
+.logo_right {
     font-family: Tahoma, sans-serif;
+    float: right;
+    width: 10vw;
+    height: 10vw;
+    margin-right: 1%;
+    margin-bottom: 2em;
     text-align: center;
-    align-items: middle; 
-    vertical-align: middle;
+   /* align-items: right; 
+    vertical-align: middle;*/
     font-variant: small-caps;
     padding: 1%;
     font-size: 2em
