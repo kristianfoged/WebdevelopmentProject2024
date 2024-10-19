@@ -117,7 +117,7 @@ header {
 /* General media query for responsive design */
 @media (max-width: 768px) {
     .guide-image {
-        max-width: 80%; /* Adjust the max-width for smaller screens */
+        max-width: 60%; /* Adjust the max-width for smaller screens */
     }
 
     .guide-profile h2 {
@@ -131,7 +131,7 @@ header {
 
 @media (max-width: 480px) {
     .guide-image {
-        max-width: 90%; /* Further adjust the max-width for very small screens */
+        max-width: 60%; /* Further adjust the max-width for very small screens */
     }
 
     .guide-profile h2 {
