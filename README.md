@@ -7,9 +7,12 @@ Company: Small company offering guided walking tours of Copenhagen
 
 Competition: At least 10 similar companies to compare solutions
 
+Design: One-Page webside, with alterations in different languages
 
 
-
+¤ Business domain area: Guided city walks
+¤ Profile of the potential website users: Turist, locals and groups
+¤ Prototype: Testet with human
 
 
 
@@ -36,9 +39,7 @@ Analyse the business domain area and the profile of the potential website users
 -> show the prototype for evaluation by a potential human user and update it to reflect on the
 eventual external recommendations
 
-¤ Business domain area: Guided city walks
-¤ Profile of the potential website users: Turist, locals and groups
-¤ Prototype: Testet with human
+
 
 HTML requirements
 
