@@ -105,3 +105,15 @@ authentication, and clear privacy policies.
 By applying your knowledge and skills, and following quality criteria and recommendations from the
 practice, you can create a website that looks professional, enhances user engagement, and effectively
 communicates its offerings – a significant contribution to success.
+
+Prompt texts examples
+
+Profiles: 
+1
+danish woman about 60  provide first name, background and specialty
+
+3
+in the same style do the resume in html for at 65 year old female with a chinese-american background
+
+5
+in the same style a 35 year old from italy living in copenhagen for 5 years
