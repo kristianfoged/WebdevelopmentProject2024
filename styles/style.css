@@ -6,39 +6,49 @@ body {
     background-color: #f4f4f4;
     text-align: center;
     box-sizing: border-box;
-   }
-
-/* NAVIGATION start */
-
-.horizontal_nav {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex; /* Use Flexbox to arrange items horizontally */
-    justify-content: space-around; /* Distribute items evenly */
+    padding-top: 220px; /* Adjust this value based on the height of your header */
 }
 
-.horizontal_nav li {
-    margin: 0 10px; /* Optional: space between items */
+.spacer {
+    height: 200px; /* Adjust the height as needed */
 }
 
-.horizontal_nav a {
-    text-decoration: none; /* Remove underline from links */
-    color: black; /* Set link color */
-    padding: 10px; /* Add padding for better click area */
-    background-color: #f0f0f0; /* Background color for links */
-    border-radius: 5px; /* Rounded corners */
-    display: block; /* Make the link fill the list item */
-}
-
-.horizontal_nav a:hover {
-    background-color: #ddd; /* Change background on hover */
-}
-/* NAVIGATION end */
 
 /* HEADER start */
 
 header {
+    position: fixed; /* This makes the header fixed */
+    top: 0; /* Position it at the top */
+    width: 80%; /* Make sure it spans the full width */
+    background-color: #f4f4f4; /* Same background color as the body */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.header-box {
+    width: 100%;
+    background-color: #f4f4f4; /* Same background color as the body */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
+}
+
+.top-line {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.language-links {
+    display: flex;
+    gap: 10px; /* Space between the flags */
+    align-items: center;
+}
+
+.flag-icon {
+    width: 30px; /* Adjust the size as needed */
+    height: auto;
+    vertical-align: middle; /* Align the icons with the text */
+}
+
+.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,17 +85,34 @@ header {
     font-style: italic; /* This makes the subtitle italic */
 }
 
-.language-links {
-    display: flex;
-    gap: 10px; /* Space between the flags */
-    align-items: center;
-    margin-left: 10px; /* Adjust as needed */
+nav {
+    width: 100%; /* Ensure the nav spans the full width */
+    background-color: #f4f4f4; /* Same background color as the header */
 }
 
-.flag-icon {
-    width: 30px; /* Adjust the size as needed */
-    height: auto;
-    vertical-align: middle; /* Align the icons with the text */
+.horizontal_nav {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use Flexbox to arrange items horizontally */
+    justify-content: space-around; /* Distribute items evenly */
+}
+
+.horizontal_nav li {
+    margin: 0 10px; /* Optional: space between items */
+}
+
+.horizontal_nav a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Set link color */
+    padding: 10px; /* Add padding for better click area */
+    background-color: #f0f0f0; /* Background color for links */
+    border-radius: 5px; /* Rounded corners */
+    display: block; /* Make the link fill the list item */
+}
+
+.horizontal_nav a:hover {
+    background-color: #ddd; /* Change background on hover */
 }
 /* HEADER end */
 
