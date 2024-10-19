@@ -38,13 +38,14 @@ header {
 }
 
 .main_title {
-    font-size: 250%; /* Adjust this value to make the main title larger */
+    font-size: 300%; /* Adjust this value to make the main title larger */
     font-weight: bold; /* This makes the main title bold */
 }
 
 .sub_title {
     font-size: 150%; /* Adjust this value to make the subtitle smaller */
     font-weight: normal; /* This makes the subtitle normal weight */
+    font-style: italic; /* This makes the subtitle italic */
 }
 
 /* HEADER end */
