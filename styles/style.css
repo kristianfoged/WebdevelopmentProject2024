@@ -10,26 +10,28 @@ body {
 
 /* NAVIGATION start */
 
-.vertical_nav {
+.horizontal_nav {
     list-style-type: none; /* Remove bullet points */
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
+    display: flex; /* Use Flexbox to arrange items horizontally */
+    justify-content: space-around; /* Distribute items evenly */
 }
 
-.vertical_nav li {
-    margin-bottom: 10px; /* Space between items */
+.horizontal_nav li {
+    margin: 0 10px; /* Optional: space between items */
 }
 
-.vertical_nav a {
+.horizontal_nav a {
     text-decoration: none; /* Remove underline from links */
     color: black; /* Set link color */
-    display: block; /* Make the link fill the list item */
     padding: 10px; /* Add padding for better click area */
     background-color: #f0f0f0; /* Background color for links */
     border-radius: 5px; /* Rounded corners */
+    display: block; /* Make the link fill the list item */
 }
 
-.vertical_nav a:hover {
+.horizontal_nav a:hover {
     background-color: #ddd; /* Change background on hover */
 }
 /* NAVIGATION end */
@@ -74,3 +76,41 @@ header {
 }
 
 /* HEADER end */
+
+
+/* GUIDE PROFILE start */
+.guide-profile {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 100%; /* Adjusted to be flexible */
+    margin: 3% auto; /* Adjusted to be flexible */
+    padding: 3%; /* Adjusted to be flexible */
+    border: 0.1% solid #ddd; /* Adjusted to be flexible */
+    border-radius: 1%; /* Adjusted to be flexible */
+    background-color: #f9f9f9;
+}
+
+.guide-profile h2 {
+    font-size: 150%; /* Adjusted to be flexible */
+    margin-bottom: 1%; /* Adjusted to be flexible */
+    color: #2c3e50;
+}
+
+.guide-profile p {
+    margin-bottom: 1%; /* Adjusted to be flexible */
+}
+
+.guide-profile strong {
+    color: #2980b9;
+}
+
+.guide-image {
+    display: block;
+    max-width: 40%;
+    height: auto;
+    margin: 5% auto; /* Center the image horizontally */
+    border-radius: 1%; /* Adjusted to be flexible */
+}
+
+/* GUIDE PROFILE end */
