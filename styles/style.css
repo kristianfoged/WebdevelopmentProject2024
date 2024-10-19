@@ -83,22 +83,23 @@ header {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    max-width: 100%; /* Adjusted to be flexible */
-    margin: 3% auto; /* Adjusted to be flexible */
-    padding: 3%; /* Adjusted to be flexible */
-    border: 0.1% solid #ddd; /* Adjusted to be flexible */
-    border-radius: 1%; /* Adjusted to be flexible */
+    max-width: 100%;
+    margin: 3% auto;
+    padding: 3%;
+    border: 0.1% solid #ddd;
+    border-radius: 1%;
     background-color: #f9f9f9;
 }
 
 .guide-profile h2 {
-    font-size: 150%; /* Adjusted to be flexible */
-    margin-bottom: 1%; /* Adjusted to be flexible */
+    font-size: 2rem; /* Using rem for relative sizing */
+    margin-bottom: 1rem;
     color: #2c3e50;
 }
 
 .guide-profile p {
-    margin-bottom: 1%; /* Adjusted to be flexible */
+    margin-bottom: 1rem;
+    font-size: 1rem; /* Using rem for relative sizing */
 }
 
 .guide-profile strong {
@@ -107,10 +108,39 @@ header {
 
 .guide-image {
     display: block;
-    max-width: 40%;
+    max-width: 60%;
     height: auto;
-    margin: 5% auto; /* Center the image horizontally */
-    border-radius: 1%; /* Adjusted to be flexible */
+    margin: 5% auto;
+    border-radius: 1%;
+}
+
+/* General media query for responsive design */
+@media (max-width: 768px) {
+    .guide-image {
+        max-width: 80%; /* Adjust the max-width for smaller screens */
+    }
+
+    .guide-profile h2 {
+        font-size: 2.5rem; /* Increase font size for better readability on small screens */
+    }
+
+    .guide-profile p {
+        font-size: 1.2rem; /* Adjust font size for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .guide-image {
+        max-width: 90%; /* Further adjust the max-width for very small screens */
+    }
+
+    .guide-profile h2 {
+        font-size: 3rem; /* Further increase font size for very small screens */
+    }
+
+    .guide-profile p {
+        font-size: 1.4rem; /* Further adjust font size for very small screens */
+    }
 }
 
 /* GUIDE PROFILE end */
