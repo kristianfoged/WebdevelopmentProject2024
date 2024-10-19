@@ -8,11 +8,14 @@ body {
 
 }
 
+
+/* HEADER start */
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5%;
+    padding: 10px;
 }
 
 .logo_left, .logo_right {
@@ -21,8 +24,6 @@ header {
 }
 
 .header_text {
-    font-size: 250%;
-    font-weight: bold; /* This makes the text bold */
     list-style: none;
     text-align: center;
     flex-grow: 1;
@@ -35,3 +36,15 @@ header {
 .header_text li {
     margin: 0;
 }
+
+.main_title {
+    font-size: 250%; /* Adjust this value to make the main title larger */
+    font-weight: bold; /* This makes the main title bold */
+}
+
+.sub_title {
+    font-size: 150%; /* Adjust this value to make the subtitle smaller */
+    font-weight: normal; /* This makes the subtitle normal weight */
+}
+
+/* HEADER end */
