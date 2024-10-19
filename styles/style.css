@@ -12,7 +12,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 5%;
 }
 
 .logo_left, .logo_right {
@@ -21,6 +21,7 @@ header {
 }
 
 .header_text {
+    font-size: 50%;
     list-style: none;
     text-align: center;
     flex-grow: 1;
