@@ -78,7 +78,6 @@ header {
 /* HEADER end */
 
 
-/* GUIDE PROFILE start */
 .guide-profile {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -100,6 +99,7 @@ header {
 .guide-profile p {
     margin-bottom: 1rem;
     font-size: 1rem; /* Using rem for relative sizing */
+    line-height: 1.5; /* Adjust line height for better alignment */
 }
 
 .guide-profile strong {
@@ -143,4 +143,11 @@ header {
     }
 }
 
-/* GUIDE PROFILE end */
+/* Flag icon styling */
+.flag-icon {
+    width: 20px; /* Adjust the size as needed */
+    height: auto;
+    vertical-align: middle; /* Align the icons with the text */
+    margin-right: 5px; /* Space between the icon and the text */
+    display: inline-block; /* Ensure the flag is treated as an inline element */
+}
