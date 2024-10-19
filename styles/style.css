@@ -22,6 +22,7 @@ header {
 
 .header_text {
     font-size: 150%;
+    font-weight: bold; /* This makes the text bold */
     list-style: none;
     text-align: center;
     flex-grow: 1;
