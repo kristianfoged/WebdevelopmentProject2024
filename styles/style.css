@@ -1,12 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin-left: 10%;
+    margin-right: 10%;
     padding: 0;
     background-color: #f4f4f4;
     text-align: center;
     box-sizing: border-box;
-
-}
+   }
 
 /* NAVIGATION start */
 
@@ -76,6 +76,30 @@ header {
 }
 
 /* HEADER end */
+
+/* TOURS LIST */
+.service-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+}
+
+.service-list li {
+    margin-bottom: 1.5rem; /* Add space between items */
+    padding-left: 1.5rem; /* Space for custom bullet */
+    position: relative;
+}
+
+.service-list li::before {
+    content: '•'; /* Custom bullet */
+    color: #2980b9; /* Bullet color */
+    font-size: 1.5rem; /* Bullet size */
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1.5rem; /* Align bullet with text */
+}
+
+/* GUIDES */
 
 
 .guide-profile {
