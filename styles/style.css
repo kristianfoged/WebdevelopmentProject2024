@@ -46,7 +46,7 @@ header {
 }
 
 .logo_left, .logo_right {
-    width: 10%;
+    width: 10%; /* Adjust the size as needed */
     height: auto;
 }
 
@@ -75,6 +75,18 @@ header {
     font-style: italic; /* This makes the subtitle italic */
 }
 
+.language-links {
+    display: flex;
+    gap: 10px; /* Space between the flags */
+    align-items: center;
+    margin-left: 10px; /* Adjust as needed */
+}
+
+.flag-icon {
+    width: 30px; /* Adjust the size as needed */
+    height: auto;
+    vertical-align: middle; /* Align the icons with the text */
+}
 /* HEADER end */
 
 /* TOURS LIST */
