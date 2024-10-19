@@ -8,6 +8,31 @@ body {
 
 }
 
+/* NAVIGATION start */
+
+.vertical_nav {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.vertical_nav li {
+    margin-bottom: 10px; /* Space between items */
+}
+
+.vertical_nav a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Set link color */
+    display: block; /* Make the link fill the list item */
+    padding: 10px; /* Add padding for better click area */
+    background-color: #f0f0f0; /* Background color for links */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.vertical_nav a:hover {
+    background-color: #ddd; /* Change background on hover */
+}
+/* NAVIGATION end */
 
 /* HEADER start */
 
