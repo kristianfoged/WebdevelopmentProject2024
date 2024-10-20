@@ -6,11 +6,11 @@ body {
     background-color: #f4f4f4;
     text-align: center;
     box-sizing: border-box;
-    padding-top: 220px; /* Adjust this value based on the height of your header */
+    padding-top: 12em; /* Adjust this value based on the height of your header */
 }
 
 .spacer {
-    height: 200px; /* Adjust the height as needed */
+    height: 14em; /* Adjust the height as needed */
 }
 
 
@@ -19,44 +19,46 @@ body {
 header {
     position: fixed; /* This makes the header fixed */
     top: 0; /* Position it at the top */
-    width: 80%; /* Make sure it spans the full width */
+    width: 100%; /* Make sure it spans the full width */
     background-color: #f4f4f4; /* Same background color as the body */
     z-index: 1000; /* Ensure it stays above other content */
 }
 
 .header-box {
-    width: 100%;
+    width: 80%;
     background-color: #f4f4f4; /* Same background color as the body */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
+    box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
 }
 
 .top-line {
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    padding: 0.2em;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .language-links {
     display: flex;
-    gap: 3%; /* Space between the flags */
+    gap: 0.5em; /* Space between the flags */
     align-items: center;
 }
 
 .flag-icon {
-    width: 10%; /* Adjust the size as needed */
+    width: 2em; /* Adjust the size as needed */
     height: auto;
     vertical-align: middle; /* Align the icons with the text */
-  }
+}
 
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding: 0.1em;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .logo_left, .logo_right {
-    width: 10%; /* Adjust the size as needed */
+    width: 8em; /* Adjust the size as needed */
     height: auto;
 }
 
@@ -75,12 +77,12 @@ header {
 }
 
 .main_title {
-    font-size: 300%; /* Adjust this value to make the main title larger */
+    font-size: 3em; /* Adjust this value to make the main title larger */
     font-weight: bold; /* This makes the main title bold */
 }
 
 .sub_title {
-    font-size: 150%; /* Adjust this value to make the subtitle smaller */
+    font-size: 1.5em; /* Adjust this value to make the subtitle smaller */
     font-weight: normal; /* This makes the subtitle normal weight */
     font-style: italic; /* This makes the subtitle italic */
 }
@@ -96,24 +98,26 @@ nav {
     margin: 0; /* Remove default margin */
     display: flex; /* Use Flexbox to arrange items horizontally */
     justify-content: space-around; /* Distribute items evenly */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
 .horizontal_nav li {
-    margin: 0 10px; /* Optional: space between items */
+    margin: 0.5em; /* Optional: space between items */
 }
 
 .horizontal_nav a {
     text-decoration: none; /* Remove underline from links */
     color: black; /* Set link color */
-    padding: 10px; /* Add padding for better click area */
+    padding: 0.2em; /* Add padding for better click area */
     background-color: #f0f0f0; /* Background color for links */
-    border-radius: 5px; /* Rounded corners */
+    border-radius: 0.25em; /* Rounded corners */
     display: block; /* Make the link fill the list item */
 }
 
 .horizontal_nav a:hover {
     background-color: #ddd; /* Change background on hover */
 }
+
 /* HEADER end */
 
 /* TOURS LIST */
