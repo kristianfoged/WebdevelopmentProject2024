@@ -145,7 +145,7 @@ nav {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    max-width: 75%;
+    max-width: 100%;
     margin: 3% auto;
     padding: 3%;
     border: 0.1% solid #ddd;
@@ -154,7 +154,7 @@ nav {
 }
 
 .guide-profile h2 {
-    font-size: 2rem; /* Using rem for relative sizing */
+    font-size: 1.4rem; /* Using rem for relative sizing */
     margin-bottom: 1rem;
     color: #2c3e50;
 }
@@ -171,10 +171,10 @@ nav {
 
 .guide-image {
     display: block;
-    max-width: 40%;
-    max-height: 40%;
+    max-width: 20%;
+    max-height: 20%;
     
-    margin: 5% auto;
+    margin: 3% auto;
     border-radius: 1%;
 }
 
@@ -209,9 +209,10 @@ nav {
 
 /* Flag icon styling */
 .flag-icon {
-    width: 20px; /* Adjust the size as needed */
-    height: auto;
+    width: auto; /* Adjust the size as needed */
+    height: 0.75rem;
     vertical-align: middle; /* Align the icons with the text */
-    margin-right: 5px; /* Space between the icon and the text */
+    margin-right: 0.1%; /* Space between the icon and the text */
+    margin-left: 1%; /* Space between the icon and the text */
     display: inline-block; /* Ensure the flag is treated as an inline element */
 }
