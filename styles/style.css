@@ -113,7 +113,8 @@ nav {
     margin: 0; /* Remove default margin */
     display: flex; /* Use Flexbox to arrange items horizontally */
     justify-content: space-around; /* Distribute items evenly */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    white-space: nowrap; /* Force items to stay on a single line */
 }
 
 .horizontal_nav li {
@@ -127,7 +128,17 @@ nav {
     background-color: #f0f0f0; /* Background color for links */
     border-radius: 0.25em; /* Rounded corners */
     display: block; /* Make the link fill the list item */
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    white-space: nowrap; /* Force items to stay on a single line */
 }
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .horizontal_nav a {
+        font-size: 0.8em; /* Reduce font size for smaller screens */
+        padding: 0.1em; /* Adjust padding for smaller screens */
+        flex-wrap: nowrap;
+    }}
 
 .horizontal_nav a:hover {
     background-color: #ddd; /* Change background on hover */
@@ -136,7 +147,7 @@ nav {
 /* Media query for smaller screens */
 @media (max-width: 768px) {
     .main-header {
-        flex-direction: column; /* Stack items vertically on smaller screens */
+        flex-direction: row; 
         align-items: center;
     }
 
