@@ -9,8 +9,15 @@ body {
 }
 
 .spacer {
-    height: 14em; /* Adjust the height as needed */
+    height: 10em; /* Adjust the height as needed */
 }
+
+@media (max-width: 600px) {
+    .spacer  {
+        height: 6em; /* Adjust the height as needed */
+    }}
+
+
 
 /* HEADER start */
 
