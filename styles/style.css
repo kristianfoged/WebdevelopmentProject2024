@@ -9,7 +9,16 @@ body {
 }
 
 :root {
-    --breakpoint-small: 600px; /* Jeg vil gerne kunne styre skiftet i px kun et sted */
+    --breakpoint-small: 600px; /* Jeg vil gerne kunne styre skiftet i px kun et sted 
+    Giver fejl i validering af CCS, og CoPilot foreslår at variable sættes i preprocessor, som er uden for scope her.
+
+    Using :root to define custom properties (CSS variables) is a valid and widely accepted practice in modern CSS. 
+    However, custom properties cannot be directly used inside media queries. This might be causing the validation issues you’re encountering.
+    To ensure your CSS validates correctly, you can use a preprocessor like Sass or Less, 
+    which allows you to define variables and reuse them throughout your CSS.
+    Here’s how you can do it with Sass:    Define the variable:$breakpoint-small: 600px;    */
+    --breakpoint-tiny: 500px;
+
 }
 
 .spacer {
@@ -120,7 +129,7 @@ header {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: var(--breakpoint-tiny)) {
     .main_title {
         font-size: 1em;
     }
@@ -138,7 +147,7 @@ header {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: var(--breakpoint-tiny)) {
     .sub_title {
         font-size: 0.7em; 
     }
@@ -175,7 +184,7 @@ nav {
 }
 
 /* Media query for smaller screens */
-@media (max-width: 500px) {
+@media (max-width: var(--breakpoint-tiny)) {
     .horizontal_nav a {
         font-size: 0.5em; /* Reduce font size for smaller screens */
         padding: 0.1em; /* Adjust padding for smaller screens */
@@ -254,7 +263,7 @@ nav {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: var(--breakpoint-tiny)) {
     .guide-image {
         max-width: 60%; /* Further adjust the max-width for very small screens */
     }
