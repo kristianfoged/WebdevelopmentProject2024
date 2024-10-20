@@ -12,7 +12,6 @@ Design: One-Page webside, with alterations in different languages
 
 ¤ Business domain area: Guided city walks
 ¤ Profile of the potential website users: Turist, locals and groups
-¤ Prototype: Testet with human
 
 
 
