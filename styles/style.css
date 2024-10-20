@@ -102,6 +102,7 @@ header {
 
 /* navigation bar */
 nav {
+    display: grid;
     width: 100%; /* Ensure the nav spans the full width */
     background-color: #f4f4f4; /* Same background color as the header */
 }
