@@ -8,11 +8,15 @@ body {
     padding-top: 12em; /* Adjust this value based on the height of your header */
 }
 
+:root {
+    --breakpoint-small: 600px; /* Jeg vil gerne kunne styre skiftet i px kun et sted */
+}
+
 .spacer {
     height: 10em; /* Adjust the height as needed */
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-small)) {
     .spacer  {
         height: 6em; /* Adjust the height as needed */
     }}
@@ -72,7 +76,7 @@ header {
     align-self: center; /* Center vertically */
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-small)) {
     .logo_left {
         max-height: 3em; 
         padding: 0.1em; /* Adjust padding for smaller screens */
@@ -91,7 +95,7 @@ header {
  
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-small)) {
     .logo_right {
         max-height: 3em; 
         }}
@@ -113,7 +117,7 @@ header {
     font-weight: bold; /* This makes the main title bold */
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-small)) {
     .main_title {
         max-height: 2em; 
         font-size: 2em;
@@ -131,7 +135,7 @@ header {
     font-style: italic; /* This makes the subtitle italic */
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--breakpoint-small)) {
     .sub_title {
         max-height: 1em; 
         font-size: 1em;
@@ -259,7 +263,7 @@ nav {
 }
 
 /* General media query for responsive design */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-small)) {
     .guide-image {
         max-width: 60%; /* Adjust the max-width for smaller screens */
     }
@@ -273,7 +277,7 @@ nav {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: var(--breakpoint-small)) {
     .guide-image {
         max-width: 60%; /* Further adjust the max-width for very small screens */
     }
