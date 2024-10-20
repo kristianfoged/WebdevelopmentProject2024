@@ -52,7 +52,7 @@ header {
     display: grid;
     grid-template-columns: 25% 50% 25%;
     align-items: center;
-    gap: 1em; /* Adjust the gap as needed */
+    gap: 0.2em; /* Adjust the gap as needed */
 }
 
 .logo_left {
@@ -65,16 +65,29 @@ header {
     align-self: center; /* Center vertically */
 }
 
+@media (max-width: 600px) {
+    .logo_left {
+        max-height: 3em; 
+        padding: 0.1em; /* Adjust padding for smaller screens */
+        flex-wrap: nowrap;
+        justify-self: right; /* Center horizontally */
+        align-self: center; /* Center vertically */
+    }}
+
+
 .logo_right {
     grid-column: 3;
     width: auto;
     height: 100%;
     max-height: 5em; 
     margin-right: 0.1em; 
-    justify-self: left; /* Center horizontally */
-    align-self: center; /* Center vertically */
+ 
 }
 
+@media (max-width: 600px) {
+    .logo_right {
+        max-height: 3em; 
+        }}
 
 
 .header_text {
@@ -93,11 +106,37 @@ header {
     font-weight: bold; /* This makes the main title bold */
 }
 
+@media (max-width: 600px) {
+    .main_title {
+        max-height: 2em; 
+        font-size: 2em;
+        }}
+
+@media (max-width: 500px) {
+            .main_title {
+                max-height: 1em; 
+                font-size: 1em;
+                }}
+
 .sub_title {
     font-size: 1.5em; /* Adjust this value to make the subtitle smaller */
     font-weight: normal; /* This makes the subtitle normal weight */
     font-style: italic; /* This makes the subtitle italic */
 }
+
+@media (max-width: 600px) {
+    .sub_title {
+        max-height: 1em; 
+        font-size: 1em;
+        }}
+
+@media (max-width: 500px) {
+            .sub_title {
+                max-height: 0.7em; 
+                font-size:  0.7em; 
+                }}
+
+
 
 
 /* navigation bar */
@@ -128,14 +167,13 @@ nav {
     background-color: #f0f0f0; /* Background color for links */
     border-radius: 0.25em; /* Rounded corners */
     display: block; /* Make the link fill the list item */
-    flex-wrap: nowrap; /* Prevent items from wrapping */
-    white-space: nowrap; /* Force items to stay on a single line */
+    
 }
 
 /* Media query for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     .horizontal_nav a {
-        font-size: 0.8em; /* Reduce font size for smaller screens */
+        font-size: 0.5em; /* Reduce font size for smaller screens */
         padding: 0.1em; /* Adjust padding for smaller screens */
         flex-wrap: nowrap;
     }}
@@ -144,35 +182,7 @@ nav {
     background-color: #ddd; /* Change background on hover */
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: row; 
-        align-items: center;
-    }
 
-    .logo_left {
-        margin-right: 0; /* Remove margin on smaller screens */
-        margin-bottom: 0.5em; /* Add space below the logo */
-    }
-
-    .main_title {
-        font-size: 2em; /* Adjust this value for smaller screens */
-        text-align: center; /* Ensure text is centered */
-        padding: 0.5em; /* Add padding for better spacing */
-    }
-
-    .sub_title {
-        font-size: 1em; /* Adjust this value for smaller screens */
-        text-align: center; /* Ensure text is centered */
-        padding: 0.5em; /* Add padding for better spacing */
-    }
-
-    .horizontal_nav {
-        flex-direction: column; /* Stack navigation items vertically */
-        align-items: center;
-    }
-}
 
 /* HEADER end */
 
