@@ -228,7 +228,7 @@ nav {
     color: #333;
     max-width: 100%;
     padding: 3%;
-    border: 0.1% solid #ddd;
+    border: 0.1em solid #ddd; /* Relative to the font size of the element  - found during validation*/ 
     border-radius: 1%;
     background-color: #f9f9f9;
 }
