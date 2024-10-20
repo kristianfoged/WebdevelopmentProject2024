@@ -1,8 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding: 0;
+    margin: 0; /* Remove margins */
+    padding: 5% 5%; /* Add padding to the sides */
     background-color: #f4f4f4;
     text-align: center;
     box-sizing: border-box;
@@ -13,19 +12,18 @@ body {
     height: 14em; /* Adjust the height as needed */
 }
 
-
 /* HEADER start */
 
 header {
     position: fixed; /* This makes the header fixed */
     top: 0; /* Position it at the top */
-    width: 100%; /* Make sure it spans the full width */
+    width: 90%; /* Make sure it spans the full width */
     background-color: #f4f4f4; /* Same background color as the body */
     z-index: 1000; /* Ensure it stays above other content */
 }
 
 .header-box {
-    width: 80%;
+    width: 100%; /* Adjust width to match body padding */ 
     background-color: #f4f4f4; /* Same background color as the body */
     box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
 }
@@ -51,21 +49,22 @@ header {
 
 .main-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the content */
     align-items: center;
     padding: 0.1em;
     flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
 
-.logo_left, .logo_right {
-    width: 8em; /* Adjust the size as needed */
-    height: auto;
+.logo_left {
+    width: auto;
+    height: 100%; /* Make the logo height match the combined height of title and subtitle */
+    max-height: 5em; /* Adjust this value as needed */
+    margin-right: 0.1em; /* Space between logo and text */
 }
 
 .header_text {
     list-style: none;
     text-align: center;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,30 +117,64 @@ nav {
     background-color: #ddd; /* Change background on hover */
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .logo_left {
+        margin-right: 0; /* Remove margin on smaller screens */
+        margin-bottom: 0.5em; /* Add space below the logo */
+    }
+
+    .main_title {
+        font-size: 2em; /* Adjust this value for smaller screens */
+        text-align: center; /* Ensure text is centered */
+        padding: 0.5em; /* Add padding for better spacing */
+    }
+
+    .sub_title {
+        font-size: 1em; /* Adjust this value for smaller screens */
+        text-align: center; /* Ensure text is centered */
+        padding: 0.5em; /* Add padding for better spacing */
+    }
+
+    .horizontal_nav {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center;
+    }
+}
+
 /* HEADER end */
 
 /* TOURS LIST */
 .service-list {
+    width: 90%;
     list-style-type: none; /* Remove default bullets */
     padding: 0;
 }
 
 .service-list li {
-    margin-bottom: 1.5rem; /* Add space between items */
-    padding-left: 1.5rem; /* Space for custom bullet */
+    margin-bottom: 1.2rem; /* Add space between items */
+    padding-left: 6%; /* Space for custom bullet */
     position: relative;
 }
 
+
+/*
 .service-list li::before {
-    content: '•'; /* Custom bullet */
-    color: #2980b9; /* Bullet color */
-    font-size: 1.5rem; /* Bullet size */
+    content: '•'; 
+    color: #080808; 
+    font-size: 1.5rem; 
     position: absolute;
-    left: 0;
+    left: 5%;
     top: 0;
-    line-height: 1.5rem; /* Align bullet with text */
+    line-height: 1.2rem; 
 }
 
+*/
 /* GUIDES */
 
 
