@@ -208,9 +208,9 @@ nav {
 }
 
 .service-list li {
-    margin-bottom: 0.5rem; /* Add space between items */
+    margin-bottom: 0.1rem; /* Add space between items */
     width: 90%;
-    padding: 2% 5%; /* Reduce padding inside items */
+    padding: 1% 5%; /* Reduce padding inside items */
     text-align: center; /* Center text */
 }
 
@@ -322,6 +322,12 @@ nav {
     padding: 0.5em;
     border: 1px solid #ccc;
     border-radius: 0.25em;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    width: 100%; /* Ensure date and time inputs are the same width */
 }
 
 button {

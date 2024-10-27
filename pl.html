@@ -171,12 +171,74 @@
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski
     </p>
 </section>
-       
-<section id="contact">
+   <!-- Zarezerwuj wycieczkę -->
+<section id="book">      
     <div class="spacer"></div>
-    <h2>Skontaktuj się z nami</h2>
-    <p>Adres: Amagertorv 6, 1160 Kopenhaga, Email: mail@copenstory.com, Telefon: +45 98765432</p>
+    <h2>Zarezerwuj wycieczkę</h2>
 </section>
+
+<section id="book-tour">
+    <form action="/submit-tour" method="post">
+        <div class="form-group">
+            <label for="name">Twoje imię:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Twój email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="tour-date">Data wycieczki:</label>
+            <input type="date" id="tour-date" name="tour-date" required>
+        </div>
+        <div class="form-group">
+            <label for="tour-time">Godzina rozpoczęcia wycieczki:</label>
+            <select id="tour-time" name="tour-time" required>
+                <option value="">--Wybierz godzinę--</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+                <option value="22:00">22:00</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="guide">Preferowany przewodnik:</label>
+            <select id="guide" name="guide" required>
+                <option value="">--Proszę wybrać przewodnika--</option>
+                <option value="guide1">Ingrid</option>
+                <option value="guide2">Aisha</option>
+                <option value="guide3">Mei</option>
+                <option value="guide4">Yuki</option>
+                <option value="guide5">Lars</option>
+                <option value="guide6">Marco</option>
+                <option value="guide5">Lukas</option>
+                <option value="guide6">Erik</option>
+            </select>
+        </div>
+        <button type="submit">Zarezerwuj teraz</button>
+    </form>
+</section>
+
+<section id="contact">
+    <div class="spacer"></div> <br>
+    <div class="spacer"></div> <br>
+    <div class="spacer"></div> 
+    <h2>Skontaktuj się z nami</h2>
+    <p>Adres: Amagertorv 6, 1160 København, Email: mail@copenstory.com, Telefon: +45 98765432</p>
+</section>
+
 <footer>
     <p>&copy; 2024 Copenstory - Wycieczki piesze po Kopenhadze. Wszelkie prawa zastrzeżone.</p>
 </footer>
