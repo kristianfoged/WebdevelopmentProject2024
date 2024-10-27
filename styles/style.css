@@ -190,7 +190,7 @@ nav {
 }
 
 /* Media query for smaller screens */
-@media (max-width: var(--breakpoint-tiny)) {
+@media (max-width: 500px) {
     .horizontal_nav a {
         font-size: 0.5em; /* Reduce font size for smaller screens */
         padding: 0.1em; /* Adjust padding for smaller screens */
