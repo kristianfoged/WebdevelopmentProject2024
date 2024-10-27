@@ -238,7 +238,7 @@ nav {
 }
 
 .guide-profile h2 {
-    font-size: 1.4rem; /* Using rem for relative sizing */
+    font-size: 1.3rem; /* Using rem for relative sizing */
     margin-bottom: 1rem;
     color: #2c3e50;
 }
@@ -268,8 +268,6 @@ nav {
 }
 @media (max-width: 600px) {       .guide-image {max-width: 60%;  }}
 
-
-
 /* Flag icon styling */
 .flag-icon {
     width: auto; /* Adjust the size as needed */
@@ -279,7 +277,6 @@ nav {
     margin-left: 1%; /* Space between the icon and the text */
     display: inline-block; /* Ensure the flag is treated as an inline element */
 }
-
 
 /* BOOKING */
 #book-tour {
