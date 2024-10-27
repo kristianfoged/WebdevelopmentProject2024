@@ -10,7 +10,7 @@ body {
 
 
 :root {
-    --breakpoint-small: 500px;  Jeg vil gerne kunne styre skiftet i px kun et sted 
+    --breakpoint-small: 500px;  /*Jeg vil gerne kunne styre skiftet i px kun et sted 
     Giver fejl i validering af CCS, og CoPilot foreslår at variable sættes i preprocessor, som er uden for scope her.
 
     Using :root to define custom properties (CSS variables) is a valid and widely accepted practice in modern CSS. 
