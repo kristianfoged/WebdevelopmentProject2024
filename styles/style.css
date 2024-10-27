@@ -28,7 +28,7 @@ body {
 
 @media (max-width: 600px) {
     .spacer {
-        height: 6em; /* Adjust the height as needed */
+        height: 4em; /* Adjust the height as needed */
     }
 }
 
