@@ -28,7 +28,7 @@ body {
 
 @media (max-width: 600px) {
     .spacer {
-        height: 4em; /* Adjust the height as needed */
+        height: 6em; /* Adjust the height as needed */
     }
 }
 
@@ -268,27 +268,14 @@ nav {
     }
 
     .guide-profile h2 {
-        font-size: 2.5rem; /* Increase font size for better readability on small screens */
+        font-size: 1.5rem; /* Increase font size for better readability on small screens */
     }
 
     .guide-profile p {
-        font-size: 1.2rem; /* Adjust font size for better readability */
+        font-size: 1.0rem; /* Adjust font size for better readability */
     }
 }
 
-@media (max-width: 600px) {
-    .guide-image {
-        max-width: 60%; /* Further adjust the max-width for very small screens */
-    }
-
-    .guide-profile h2 {
-        font-size: 3rem; /* Further increase font size for very small screens */
-    }
-
-    .guide-profile p {
-        font-size: 1.4rem; /* Further adjust font size for very small screens */
-    }
-}
 
 /* Flag icon styling */
 .flag-icon {
