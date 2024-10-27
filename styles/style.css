@@ -289,3 +289,50 @@ nav {
     margin-left: 1%; /* Space between the icon and the text */
     display: inline-block; /* Ensure the flag is treated as an inline element */
 }
+
+
+/* BOOKING */
+#book-tour {
+    padding: 2em;
+    background-color: #f4f4f4;
+    border-radius: 0.5em;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#book-tour h2 {
+    margin-bottom: 1em;
+    font-size: 2em;
+}
+
+.form-group {
+    margin-bottom: 1em;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.25em;
+}
+
+button {
+    padding: 0.75em 1.5em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

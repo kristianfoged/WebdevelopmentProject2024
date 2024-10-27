@@ -171,9 +171,46 @@
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danish" class="flag-icon"> Danish 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="English" class="flag-icon"> English
     </p>
+
+<!-- Book tour -->
+<section id="book-tour">
+    <h2>Book a Tour</h2>
+    <form action="/submit-tour" method="post">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="tour-date">Tour Date:</label>
+            <input type="date" id="tour-date" name="tour-date" required>
+        </div>
+        <div class="form-group">
+            <label for="guide">Prefered guide:</label>
+            <select id="guide" name="guide" required>
+                <option value="">--Please choose prefered guide--</option>
+                <option value="guide1">Ingrid</option>
+                <option value="guide2">Aisha</option>
+                <option value="guide3">Mei</option>
+                <option value="guide4">Yuki</option>
+                <option value="guide5">Lars</option>
+                <option value="guide6">Marco</option>
+                <option value="guide5">Lukas</option>
+                <option value="guide6">Erik</option>
+
+
+            </select>
+        </div>
+        <button type="submit">Book Now</button>
+    </form>
 </section>
-       
-        <section id="contact">
+
+
+</section>
+               <section id="contact">
             <div class="spacer"></div>
             
             <h2>Contact Us</h2>
