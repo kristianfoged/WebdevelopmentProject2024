@@ -242,12 +242,18 @@ nav {
     margin-bottom: 1rem;
     color: #2c3e50;
 }
+@media (max-width: 600px) {       .guide-profile h2 {font-size: 1.0rem; /* Increase font size for better readability on small screens */    }}
+
 
 .guide-profile p {
     margin-bottom: 1rem;
     font-size: 1rem; /* Using rem for relative sizing */
     line-height: 1.5; /* Adjust line height for better alignment */
 }
+@media (max-width: 600px) {       guide-profile p {font-size: 0.7rem;  }}
+
+
+
 
 .guide-profile strong {
     color: #2980b9;
@@ -260,21 +266,8 @@ nav {
     margin: 3% auto;
     border-radius: 1%;
 }
+@media (max-width: 600px) {       .guide-image {max-width: 60%;  }}
 
-/* General media query for responsive design */
-@media (max-width: 600px) {
-    .guide-image {
-        max-width: 60%; /* Adjust the max-width for smaller screens */
-    }
-
-    .guide-profile h2 {
-        font-size: 1.5rem; /* Increase font size for better readability on small screens */
-    }
-
-    .guide-profile p {
-        font-size: 1.0rem; /* Adjust font size for better readability */
-    }
-}
 
 
 /* Flag icon styling */
