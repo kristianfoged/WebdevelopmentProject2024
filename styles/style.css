@@ -33,15 +33,6 @@ body {
 }
 
 
-.spacer_start {
-    height: 8em; /* Adjust the height as needed */
-}
-
-@media (max-width: 600px) {
-    .spacer_start {
-        height: 4em; /* Adjust the height as needed */
-    }
-}
 /* HEADER start */
 
 header {
