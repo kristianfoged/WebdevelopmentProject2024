@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copenstory - Wycieczki piesze po Kopenhadze</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -29,6 +30,7 @@
             <nav>
                 <ul class="horizontal_nav">
                     <li><a href="index.html">Wycieczki</a></li>
+                    <li><a href="#sights">Zabytki</a></li>
                     <li><a href="#guides">Poznaj przewodników</a></li>
                     <li><a href="#book">Zarezerwuj wycieczkę</a></li>
                     <li><a href="#contact">Kontakt</a></li>
@@ -37,56 +39,117 @@
         </div>
     </header>
    
-        <section id="services">
-            <h2>Wycieczki</h2>
-            <p>W Copenstory oferujemy szereg interesujących i pouczających wycieczek pieszych, które mają na celu pokazanie najlepszych miejsc w Kopenhadze. Nasze usługi obejmują:</p>
-            <ul class="service-list">
-                <li><strong>Historyczne wycieczki piesze:</strong> 
-                    <br> Odkryj bogatą historię Kopenhagi z naszymi doświadczonymi przewodnikami. 
-                    <br> Odwiedź ikoniczne zabytki, poznaj średniowieczną przeszłość miasta i posłuchaj fascynujących opowieści, które ożywiają historię.</li>
-                <li><strong>Kulturalne wycieczki piesze:</strong> 
-                    <br>Odkryj żywą kulturę Kopenhagi. 
-                    <br>Nasi przewodnicy zabiorą Cię przez artystyczne i kulturalne punkty miasta, w tym muzea, galerie i teatry.</li>
-                <li><strong>Architektoniczne wycieczki piesze:</strong> 
-                    <br>Dla miłośników architektury nasze wycieczki podkreślają mieszankę historycznej i nowoczesnej architektury, która definiuje Kopenhagę. 
-                    <br>Zobacz imponujące budynki i dowiedz się więcej o ewolucji architektonicznej miasta.</li>
-                <li><strong>Prywatne wycieczki na zamówienie:</strong> 
-                    <br>Dostosuj swoje doświadczenie dzięki naszym prywatnym wycieczkom na zamówienie. 
-                    <br>Niezależnie od tego, czy masz określone zainteresowania, czy konkretny plan podróży, nasi przewodnicy stworzą spersonalizowaną wycieczkę tylko dla Ciebie.</li>
-                <li><strong>Wycieczki rodzinne:</strong> 
-                    <br>Ciesz się zabawnym i edukacyjnym doświadczeniem dzięki naszym wycieczkom rodzinnym. 
-                    <br>Zaprojektowane, aby angażować odwiedzających w każdym wieku, te wycieczki obejmują interaktywne zajęcia i opowieści, które fascynują zarówno dzieci, jak i dorosłych.</li>
-            </ul>
-        
-        </section>
+    <section id="services">
+        <h2>Wycieczki</h2>
+        <p>W Copenstory oferujemy szereg angażujących i pouczających wycieczek pieszych, które mają na celu pokazanie najlepszych miejsc w Kopenhadze. Nasze usługi obejmują:</p>
+        <ul class="service-list">
+            <li><strong>Historyczne wycieczki piesze:</strong> 
+                <br> Odkryj bogatą historię Kopenhagi z naszymi doświadczonymi przewodnikami. 
+                <br> Odwiedź ikoniczne zabytki, poznaj średniowieczną przeszłość miasta i posłuchaj fascynujących historii, które ożywiają historię.</li>
+            <li><strong>Kulturalne wycieczki piesze:</strong> 
+                <br>Odkryj żywą kulturę Kopenhagi. 
+                <br>Nasi przewodnicy zabiorą Cię przez artystyczne i kulturalne miejsca miasta, w tym muzea, galerie i teatry.</li>
+            <li><strong>Architektoniczne wycieczki piesze:</strong> 
+                <br>Dla miłośników architektury nasze wycieczki podkreślają mieszankę historycznej i nowoczesnej architektury, która definiuje Kopenhagę. 
+                <br>Zobacz imponujące budynki i dowiedz się więcej o ewolucji architektonicznej miasta.</li>
+            <li><strong>Prywatne wycieczki na zamówienie:</strong> 
+                <br>Dostosuj swoje doświadczenie dzięki naszym prywatnym wycieczkom na zamówienie. 
+                <br>Niezależnie od tego, czy masz konkretne zainteresowania, czy też określoną trasę w myślach, nasi przewodnicy stworzą spersonalizowaną wycieczkę tylko dla Ciebie.</li>
+            <li><strong>Wycieczki przyjazne rodzinom:</strong> 
+                <br>Ciesz się zabawnym i edukacyjnym doświadczeniem dzięki naszym wycieczkom przyjaznym rodzinom. 
+                <br>Zaprojektowane, aby angażować odwiedzających w każdym wieku, te wycieczki obejmują interaktywne zajęcia i historie, które zachwycą zarówno dzieci, jak i dorosłych.</li>
+        </ul>
+    </section>
 
-        <section id="guides">      
-            <div class="spacer"></div>
-            <h2>Poznaj przewodników</h2>
-        </section>
+<!-- Mapa atrakcji turystycznych -->
+
+<section id="sights">      
+    <div class="spacer"></div>
+    <h2>Najważniejsze atrakcje turystyczne w Kopenhadze</h2>
+</section>
+
+<section id="map-section">
+    <div id="map"></div>
+</section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+// Inicjalizacja mapy
+var map = L.map('map').setView([55.6761, 12.5683], 13);
+
+// Dodaj kafelki OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> współtwórcy'
+}).addTo(map);
+
+// Zdefiniuj atrakcje z kategoriami i kolorami
+var attractions = [
+    ["<strong>Ogrody Tivoli</strong><br>Jeden z najstarszych parków rozrywki na świecie, oferujący przejażdżki, gry i piękne ogrody.", 55.6736, 12.5683, "red"],
+    ["<strong>Mała Syrenka</strong><br>Słynna brązowa statua inspirowana baśnią Hansa Christiana Andersena, położona nad wodą.", 55.6929, 12.5993, "blue"],
+    ["<strong>Nyhavn</strong><br>Nabrzeże z XVII wieku, znane z kolorowych budynków i historycznych statków.", 55.6794, 12.5900, "blue"],
+    ["<strong>Zamek Christiansborg</strong><br>Siedziba duńskiego parlamentu, Sądu Najwyższego i biura premiera, z królewskimi salami recepcyjnymi i wieżą oferującą panoramiczne widoki.", 55.67623, 12.580406, "red"],
+    ["<strong>Zamek Rosenborg</strong><br>Zamek renesansowy, w którym znajdują się duńskie klejnoty koronne i insygnia, otoczony Ogrodem Królewskim.", 55.6854, 12.5779, "red"],
+    ["<strong>Zamek Amalienborg</strong><br>Rezydencja duńskiej rodziny królewskiej, składająca się z czterech identycznych klasycznych fasad pałacowych wokół ośmiokątnego dziedzińca.", 55.6848, 12.5938, "red"],
+    ["<strong>Muzeum Narodowe Danii</strong><br>Największe muzeum historii kultury w Danii, prezentujące artefakty od epoki kamienia po czasy współczesne.", 55.6743, 12.5769, "green"],
+    ["<strong>Okrągła Wieża</strong><br>Najstarsze działające obserwatorium w Europie, oferujące unikalną spiralną rampę i panoramiczny widok na Kopenhagę.", 55.6829, 12.5735, "red"],
+    ["<strong>Zoo w Kopenhadze</strong><br>Jedno z najstarszych zoo w Europie, dom dla wielu różnych zwierząt, znane z Domu Słoni zaprojektowanego przez Normana Fostera.", 55.6728, 12.5214, "green"],
+    ["<strong>Galeria Narodowa Danii (SMK)</strong><br>Największe muzeum sztuki w kraju, prezentujące kolekcje duńskiej i międzynarodowej sztuki z ostatnich siedmiu wieków.", 55.6886, 12.5776, "green"],
+    ["<strong>Zamek Frederiksborg</strong><br>Wspaniały zamek renesansowy położony w Hillerød, z pięknymi ogrodami i muzeum historii narodowej.", 55.9354, 12.3001, "red"],
+    ["<strong>Zamek Kronborg</strong><br>Znany jako Elsinore w Hamlecie Szekspira, ten obiekt światowego dziedzictwa UNESCO jest wspaniałym zamkiem renesansowym.", 56.0381, 12.6136, "red"],
+    ["<strong>Ny Carlsberg Glyptotek</strong><br>Muzeum sztuki z ogromną kolekcją rzeźb i obrazów, w tym dzieł Rodina i Gauguina.", 55.6726, 12.5724, "green"],
+    ["<strong>Ogród Botaniczny</strong><br>Piękny ogród z dużą kolekcją roślin, szklarniami i domem motyli.", 55.6861, 12.5734, "green"],
+    ["<strong>Strøget</strong><br>Jedna z najdłuższych ulic dla pieszych w Europie, oferująca różnorodne sklepy, kawiarnie i występy uliczne.", 55.6761, 12.5683, "blue"],
+    ["<strong>Wolne Miasto Christiania</strong><br>Unikalna i kontrowersyjna dzielnica znana ze swojego alternatywnego stylu życia i tętniącej życiem sceny artystycznej.", 55.6742, 12.5971, "blue"],
+    ["<strong>Den Blå Planet</strong><br>Narodowe Akwarium Danii, prezentujące różnorodne życie morskie i interaktywne wystawy.", 55.6505, 12.6509, "green"],
+    ["<strong>Experimentarium</strong><br>Centrum nauki z interaktywnymi wystawami i zajęciami dla wszystkich grup wiekowych, położone w Hellerup.", 55.7254, 12.5761, "green"],
+    ["<strong>Amager Strandpark</strong><br>Popularny park plażowy oferujący pływanie, opalanie się i różne sporty wodne.", 55.6625, 12.6216, "green"],
+    ["<strong>Kościół Naszego Zbawiciela</strong><br>Słynny ze swojej korkociągowej wieży z zewnętrznymi schodami oferującymi panoramiczne widoki na miasto.", 55.6731, 12.5931, "red"],
+    ["<strong>Rundetårn</strong><br>Wieża i obserwatorium z XVII wieku z unikalną spiralną rampą i panoramicznymi widokami na Kopenhagę.", 55.6829, 12.5735, "red"],
+    ["<strong>Ogród Królewski</strong><br>Najstarszy królewski ogród w Danii, położony obok zamku Rosenborg, idealny na relaksujący spacer.", 55.6854, 12.5779, "green"],
+    ["<strong>Kościół Fryderyka (Kościół Marmurowy)</strong><br>Piękny barokowy kościół znany ze swojej imponującej kopuły i oszałamiającej architektury.", 55.6844, 12.5919, "red"],
+    ["<strong>Planetarium Tycho Brahe</strong><br>Planetarium oferujące edukacyjne pokazy i wystawy na temat astronomii i eksploracji kosmosu.", 55.6736, 12.5584, "green"],
+    ["<strong>Browar Carlsberg</strong><brOdwiedź historyczny browar, aby dowiedzieć się więcej o procesie warzenia piwa i cieszyć się sesją degustacyjną.", 55.6658, 12.5431, "blue"]
+];
+
+// Dodaj markery dla atrakcji z różnymi kolorami
+attractions.forEach(function(attraction) {
+    var color = attraction[3];
+    var marker = L.circleMarker([attraction[1], attraction[2]], {
+        color: color,
+        radius: 8,
+        fillOpacity: 0.8
+    }).addTo(map);
+    marker.bindPopup(attraction[0]);
+});
+</script>
+<!-- Poznaj przewodników -->
+
+<section id="guides">      
+    <div class="spacer"></div>
+    <h2>Poznaj przewodników</h2>
+</section>
        
-     
 <!-- Guide1: Ingrid -->
-        <section class="guide-profile">
-            <h2>Poznaj Ingrid</h2>
-            <img src="images/guide1.png" alt="Ingrid - Przewodnik wycieczek pieszych" class="guide-image">
-            <p><strong>Tło:</strong> Ingrid jest rodowitą Kopenhaganką z głęboką pasją do bogatej historii i żywej kultury swojego miasta. Z ponad 30-letnim doświadczeniem jako przewodnik turystyczny, posiada rozległą wiedzę na temat zabytków Kopenhagi, ukrytych skarbów i historycznych anegdot. Ciepła osobowość Ingrid i jej umiejętność opowiadania historii sprawiają, że jej wycieczki są zarówno pouczające, jak i przyjemne.</p>
-            <p><strong>Specjalność:</strong> Ingrid specjalizuje się w historycznych i kulturalnych wycieczkach pieszych. Ma szczególne zainteresowanie średniowieczną historią Kopenhagi i uwielbia dzielić się opowieściami o ewolucji miasta na przestrzeni wieków. Niezależnie od tego, czy są to architektoniczne cuda starego miasta, czy urocze opowieści o lokalnym folklorze, Ingrid ożywia przeszłość swoimi fascynującymi narracjami.</p>
-            <p><strong>Języki:</strong> 
-            <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Duński" class="flag-icon"> Duński
-            <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski
-            <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Włoski" class="flag-icon"> Włoski
-            <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="Francuski" class="flag-icon"> Francuski
-            <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Niemiecki" class="flag-icon"> Niemiecki
-            </p>
-        </section>
+<section class="guide-profile">
+    <h2>Poznaj Ingrid</h2>
+    <img src="images/guide1.png" alt="Ingrid - Przewodniczka wycieczek pieszych" class="guide-image">
+    <p><strong>Informacje:</strong> Ingrid jest rodowitą mieszkanką Kopenhagi i ma głęboką pasję do bogatej historii i żywej kultury swojego miasta. Z ponad 30-letnim doświadczeniem jako przewodniczka turystyczna, posiada rozległą wiedzę na temat zabytków, ukrytych skarbów i historycznych anegdot Kopenhagi. Ciepła osobowość Ingrid i jej umiejętność opowiadania historii sprawiają, że jej wycieczki są zarówno pouczające, jak i przyjemne.</p>
+    <p><strong>Specjalność:</strong> Ingrid specjalizuje się w historycznych i kulturalnych wycieczkach pieszych. Szczególnie interesuje się średniowieczną historią Kopenhagi i uwielbia dzielić się opowieściami o ewolucji miasta na przestrzeni wieków. Niezależnie od tego, czy chodzi o architektoniczne cuda starego miasta, czy urocze opowieści o lokalnym folklorze, Ingrid ożywia przeszłość swoimi fascynującymi narracjami.</p>
+    <p><strong>Języki:</strong> 
+        <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Duński" class="flag-icon"> Duński
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski
+        <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Włoski" class="flag-icon"> Włoski
+        <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="Francuski" class="flag-icon"> Francuski
+        <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Niemiecki" class="flag-icon"> Niemiecki
+    </p>
+</section>
 
-        <!-- Przewodnik2: Aisha -->
+<!-- Guide2: Aisha -->
 <section class="guide-profile">
     <h2>Poznaj Aishę</h2>
-    <img src="images/guide2.png" alt="Aisha - Przewodnik wycieczek pieszych" class="guide-image">
-    <p><strong>Tło:</strong> Aisha, pochodząca z Londynu, przyjęła Kopenhagę jako swój dom przez ostatnią dekadę. Z bogatym doświadczeniem w historii i talentem do opowiadania historii, Aisha od ponad 10 lat prowadzi odwiedzających przez urocze uliczki Kopenhagi. Jej rozległa wiedza na temat zabytków miasta, ukrytych skarbów i historycznych anegdot, w połączeniu z jej ciepłą i angażującą osobowością, sprawia, że jej wycieczki są zarówno pouczające, jak i przyjemne.</p>
-    <p><strong>Specjalność:</strong> Aisha specjalizuje się w współczesnych i historycznych wycieczkach pieszych. Ma szczególne zainteresowanie nowoczesnym rozwojem Kopenhagi oraz jej bogatą przeszłością historyczną. Od innowacyjnej architektury nowych obszarów portowych po fascynujące opowieści o wikingowskich początkach miasta, Aisha wnosi unikalną i wnikliwą perspektywę do każdej wycieczki. Jej umiejętność płynnego łączenia starego z nowym zapewnia, że każdy odwiedzający zyskuje pełne zrozumienie ewolucji Kopenhagi.</p>
+    <img src="images/guide2.png" alt="Aisha - Przewodniczka wycieczek pieszych" class="guide-image">
+    <p><strong>Informacje:</strong> Aisha, pochodząca z Londynu, uczyniła Kopenhagę swoim domem przez ostatnią dekadę. Z bogatym doświadczeniem w historii i talentem do opowiadania historii, Aisha od ponad 10 lat prowadzi odwiedzających po urokliwych ulicach Kopenhagi. Jej rozległa wiedza na temat zabytków, ukrytych skarbów i historycznych anegdot miasta, w połączeniu z jej ciepłą i angażującą osobowością, sprawia, że jej wycieczki są zarówno pouczające, jak i przyjemne.</p>
+    <p><strong>Specjalność:</strong> Aisha specjalizuje się w wycieczkach pieszych zarówno współczesnych, jak i historycznych. Szczególnie interesuje się nowoczesnym rozwojem Kopenhagi oraz jej bogatą przeszłością historyczną. Od innowacyjnej architektury nowych obszarów portowych po fascynujące opowieści o wikingowskich korzeniach miasta, Aisha wnosi unikalną i wnikliwą perspektywę do każdej wycieczki. Jej umiejętność płynnego łączenia starego z nowym zapewnia, że każdy odwiedzający zyskuje pełne zrozumienie ewolucji Kopenhagi.</p>
     <p><strong>Języki:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski 
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Duński" class="flag-icon"> Duński 
@@ -94,12 +157,12 @@
     </p>
 </section>
 
-<!-- Przewodnik3: Mei -->
+<!-- Guide3: Mei -->
 <section class="guide-profile">
     <h2>Poznaj Mei</h2>
-    <img src="images/guide3.png" alt="Mei - Przewodnik wycieczek pieszych" class="guide-image">
-    <p><strong>Tło:</strong> Mei, pochodząca z San Francisco, ma bogate dziedzictwo łączące kultury chińską i amerykańską. Od 20 lat nazywa Kopenhagę swoim domem. Z wykształceniem w dziedzinie studiów kulturowych i życiową pasją do historii, Mei od ponad 15 lat prowadzi odwiedzających przez urokliwe uliczki Kopenhagi. Jej głęboka wiedza na temat historii miasta, w połączeniu z jej ciepłą i angażującą osobowością, sprawia, że jej wycieczki są zarówno edukacyjne, jak i przyjemne.</p>
-    <p><strong>Specjalność:</strong> Mei specjalizuje się w kulturalnych i historycznych wycieczkach pieszych. Ma szczególne zainteresowanie różnorodnymi wpływami kulturowymi, które kształtowały Kopenhagę na przestrzeni wieków. Od starożytnych wikingów po współczesny wielokulturowy krajobraz, Mei wnosi unikalną i wnikliwą perspektywę do każdej wycieczki. Jej umiejętność łączenia wydarzeń historycznych z współczesną kulturą zapewnia, że każdy odwiedzający opuszcza wycieczkę z głębszym zrozumieniem bogatego dziedzictwa Kopenhagi.</p>
+    <img src="images/guide3.png" alt="Mei - Przewodniczka wycieczek pieszych" class="guide-image">
+    <p><strong>Informacje:</strong> Mei, pochodząca z San Francisco, ma bogate dziedzictwo łączące kultury chińską i amerykańską. Od 20 lat nazywa Kopenhagę swoim domem. Z wykształceniem w dziedzinie studiów kulturowych i życiową pasją do historii, Mei od ponad 15 lat prowadzi odwiedzających po urokliwych ulicach Kopenhagi. Jej głęboka wiedza na temat historii miasta, w połączeniu z jej ciepłą i angażującą osobowością, sprawia, że jej wycieczki są zarówno edukacyjne, jak i przyjemne.</p>
+    <p><strong>Specjalność:</strong> Mei specjalizuje się w wycieczkach pieszych kulturalnych i historycznych. Szczególnie interesuje się różnorodnymi wpływami kulturowymi, które kształtowały Kopenhagę na przestrzeni wieków. Od starożytnych wikingowskich korzeni miasta po jego nowoczesny wielokulturowy krajobraz, Mei wnosi unikalną i wnikliwą perspektywę do każdej wycieczki. Jej umiejętność łączenia wydarzeń historycznych z współczesną kulturą zapewnia, że każdy odwiedzający zyskuje głębsze zrozumienie bogatego dziedzictwa Kopenhagi.</p>
     <p><strong>Języki:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski 
         <img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="Mandaryński" class="flag-icon"> Mandaryński 
@@ -107,16 +170,15 @@
     </p>
 </section>
 
-<!-- Przewodnik4: Yuki -->
+<!-- Guide4: Yuki -->
 <section class="guide-profile">
     <h2>Poznaj Yuki</h2>
-    <img src="images/guide4.png" alt="Yuki - Przewodnik wycieczek pieszych" class="guide-image">
-    <p><strong>Tło:</strong> Yuki, pochodząca z Tokio, mieszka w Kopenhadze od dwóch lat jako studentka architektury. Jej pasja do projektowania i planowania urbanistycznego daje jej unikalną perspektywę na krajobraz architektoniczny miasta. Entuzjazm Yuki do tradycyjnej i nowoczesnej architektury, w połączeniu z jej świeżymi spostrzeżeniami jako studentki, sprawia, że jej wycieczki są angażujące i pouczające.</p>
-    <p><strong>Specjalność:</strong> Yuki specjalizuje się w architektonicznych wycieczkach pieszych. Ma szczególne zainteresowanie mieszanką historycznej i współczesnej architektury, która definiuje Kopenhagę. Od ikonicznych wież starego miasta po nowoczesne projekty nowych obszarów portowych, wycieczki Yuki podkreślają ewolucję architektoniczną miasta. Jej umiejętność wyjaśniania skomplikowanych koncepcji architektonicznych w przystępny sposób zapewnia, że każdy odwiedzający zyskuje głębsze zrozumienie zbudowanego środowiska Kopenhagi.</p>
+    <img src="images/guide4.png" alt="Yuki - Przewodniczka wycieczek pieszych" class="guide-image">
+    <p><strong>Informacje:</strong> Yuki, pochodząca z Tokio, mieszka w Kopenhadze od dwóch lat jako studentka architektury. Jej pasja do projektowania i planowania urbanistycznego daje jej unikalną perspektywę na krajobraz architektoniczny miasta. Entuzjazm Yuki do tradycyjnej i nowoczesnej architektury, w połączeniu z jej świeżymi spostrzeżeniami jako studentki, sprawia, że jej wycieczki są angażujące i pouczające.</p>
+    <p><strong>Specjalność:</strong> Yuki specjalizuje się w wycieczkach pieszych architektonicznych. Ma duże zainteresowanie mieszanką architektury historycznej i współczesnej, która definiuje Kopenhagę. Od ikonicznych wież starego miasta po nowoczesne projekty nowych obszarów portowych, wycieczki Yuki podkreślają ewolucję architektoniczną miasta. Jej umiejętność wyjaśniania skomplikowanych koncepcji architektonicznych w przystępny sposób zapewnia, że każdy odwiedzający zyskuje głębsze zrozumienie zbudowanego środowiska Kopenhagi.</p>
     <p><strong>Języki:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" alt="Japoński" class="flag-icon"> Japoński 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski
-       <!-- <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Duński" class="flag-icon"> Duński -->
     </p>
 </section>
 
@@ -124,8 +186,8 @@
 <section class="guide-profile">
     <h2>Poznaj Larsa</h2>
     <img src="images/guide5.png" alt="Lars - Przewodnik wycieczek pieszych" class="guide-image">
-    <p><strong>Tło:</strong> Lars, rodowity Kopenhagenczyk, ma głęboką pasję do historii i kultury swojego miasta. W wieku 28 lat spędził ostatnie pięć lat prowadząc odwiedzających przez tętniące życiem ulice Kopenhagi. Z wykształceniem w dziedzinie studiów kulturowych i miłością do opowiadania historii, Lars wnosi bogactwo wiedzy i entuzjazmu do swoich wycieczek.</p>
-    <p><strong>Specjalność:</strong> Lars specjalizuje się w kulturalnych i historycznych wycieczkach pieszych. Ma szczególne zainteresowanie społeczną i kulturalną ewolucją Kopenhagi, od jej średniowiecznych początków po współczesny urok. Niezależnie od tego, czy eksploruje historyczną dzielnicę Nyhavn, czy współczesną architekturę miasta, wycieczki Larsa oferują kompleksowe i angażujące spojrzenie na przeszłość i teraźniejszość Kopenhagi.</p>
+    <p><strong>Informacje:</strong> Lars, rodowity mieszkaniec Kopenhagi, ma głęboką pasję do historii i kultury swojego miasta. W wieku 28 lat spędził ostatnie pięć lat, oprowadzając turystów po tętniących życiem ulicach Kopenhagi. Z wykształceniem w dziedzinie studiów kulturowych i miłością do opowiadania historii, Lars wnosi bogactwo wiedzy i entuzjazmu do swoich wycieczek.</p>
+    <p><strong>Specjalność:</strong> Lars specjalizuje się w kulturalnych i historycznych wycieczkach pieszych. Szczególnie interesuje się społeczną i kulturalną ewolucją Kopenhagi, od jej średniowiecznych początków po współczesny urok. Niezależnie od tego, czy eksploruje historyczną dzielnicę Nyhavn, czy współczesną architekturę miasta, wycieczki Larsa oferują kompleksowy i angażujący wgląd w przeszłość i teraźniejszość Kopenhagi.</p>
     <p><strong>Języki:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Duński" class="flag-icon"> Duński 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski 
@@ -137,8 +199,8 @@
 <section class="guide-profile">
     <h2>Poznaj Marco</h2>
     <img src="images/guide6.png" alt="Marco - Przewodnik wycieczek pieszych" class="guide-image">
-    <p><strong>Tło:</strong> Marco, pochodzący z Rzymu, mieszka w Kopenhadze od pięciu lat. W wieku 35 lat wnosi bogatą perspektywę kulturową do swoich wycieczek, łącząc swoje włoskie dziedzictwo z głębokim uznaniem dla duńskiej kultury. Z wykształceniem w historii sztuki i pasją do eksploracji miejskich krajobrazów, Marco z entuzjazmem i fachowością prowadzi odwiedzających przez ulice Kopenhagi.</p>
-    <p><strong>Specjalność:</strong> Marco specjalizuje się w artystycznych i kulturalnych wycieczkach pieszych. Ma szczególne zainteresowanie artystycznymi i kulturalnymi wymianami między Włochami a Danią oraz tym, jak te wpływy są odzwierciedlone w architekturze i przestrzeniach publicznych Kopenhagi. Od klasycznego piękna historycznych budynków po innowacyjne projekty współczesnych struktur, wycieczki Marco oferują unikalną i wnikliwą eksplorację artystycznego dziedzictwa Kopenhagi.</p>
+    <p><strong>Informacje:</strong> Marco, pochodzący z Rzymu, mieszka w Kopenhadze od pięciu lat. W wieku 35 lat wnosi bogatą perspektywę kulturową do swoich wycieczek, łącząc swoje włoskie dziedzictwo z głębokim uznaniem dla duńskiej kultury. Z wykształceniem w dziedzinie historii sztuki i pasją do eksploracji miejskich krajobrazów, Marco z entuzjazmem i fachowością oprowadza turystów po ulicach Kopenhagi.</p>
+    <p><strong>Specjalność:</strong> Marco specjalizuje się w wycieczkach pieszych poświęconych sztuce i kulturze. Szczególnie interesuje się artystycznymi i kulturalnymi wymianami między Włochami a Danią oraz tym, jak te wpływy są odzwierciedlone w architekturze i przestrzeniach publicznych Kopenhagi. Od klasycznego piękna historycznych budynków po innowacyjne projekty współczesnych struktur, wycieczki Marco oferują unikalną i wnikliwą eksplorację artystycznego dziedzictwa Kopenhagi.</p>
     <p><strong>Języki:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Włoski" class="flag-icon"> Włoski 
         <img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Hiszpański" class="flag-icon"> Hiszpański 
@@ -150,8 +212,8 @@
 <section class="guide-profile">
     <h2>Poznaj Lukasa</h2>
     <img src="images/guide7.png" alt="Lukas - Przewodnik wycieczek pieszych" class="guide-image">
-    <p><strong>Tło:</strong> Lukas, pochodzący z Wiednia, mieszka w Kopenhadze od trzech lat. W wieku 38 lat wnosi bogate doświadczenie i unikalną perspektywę do swoich wycieczek. Z wykształceniem w historii Europy i pasją do wymiany kulturowej, Lukas z entuzjazmem dzieli się swoimi spostrzeżeniami i historiami podczas prowadzenia odwiedzających przez piękne ulice Kopenhagi.</p>
-    <p><strong>Specjalność:</strong> Lukas specjalizuje się w historycznych i kulturalnych wycieczkach pieszych. Ma szczególne zainteresowanie historycznymi powiązaniami między Austrią a Danią oraz tym, jak te wpływy są odzwierciedlone w architekturze i kulturalnych zabytkach Kopenhagi. Od wspaniałości królewskich pałaców po urok ukrytych dziedzińców, wycieczki Lukasa oferują bogatą i angażującą eksplorację historycznego i kulturalnego dziedzictwa Kopenhagi.</p>
+    <p><strong>Informacje:</strong> Lukas, pochodzący z Wiednia, mieszka w Kopenhadze od trzech lat. W wieku 38 lat wnosi bogactwo doświadczeń i unikalną perspektywę do swoich wycieczek. Z wykształceniem w dziedzinie historii europejskiej i pasją do wymiany kulturowej, Lukas z entuzjazmem oprowadza turystów po pięknych ulicach Kopenhagi, dzieląc się swoimi spostrzeżeniami i historiami.</p>
+    <p><strong>Specjalność:</strong> Lukas specjalizuje się w historycznych i kulturalnych wycieczkach pieszych. Szczególnie interesuje się historycznymi powiązaniami między Austrią a Danią oraz tym, jak te wpływy są odzwierciedlone w architekturze i zabytkach kulturowych Kopenhagi. Od wspaniałości królewskich pałaców po urok ukrytych dziedzińców, wycieczki Lukasa oferują bogatą i angażującą eksplorację historycznego i kulturalnego dziedzictwa Kopenhagi.</p>
     <p><strong>Języki:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Niemiecki" class="flag-icon"> Niemiecki 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski 
@@ -163,15 +225,15 @@
 <section class="guide-profile">
     <h2>Poznaj Erika</h2>
     <img src="images/guide8.png" alt="Erik - Przewodnik wycieczek pieszych" class="guide-image">
-    <p><strong>Tło:</strong> Erik, pochodzący z Oslo, mieszka w Kopenhadze od 38 lat. W wieku 62 lat wnosi bogactwo doświadczeń i głębokie zrozumienie historii i kultury miasta. Z wykształceniem w studiach skandynawskich i pasją do opowiadania historii, Erik od dekad prowadzi odwiedzających przez ulice Kopenhagi, dzieląc się swoją rozległą wiedzą i fascynującymi opowieściami.</p>
-    <p><strong>Specjalność:</strong> Erik specjalizuje się w historycznych i kulturalnych wycieczkach pieszych. Ma szczególne zainteresowanie skandynawskimi wpływami na rozwój Kopenhagi oraz tym, jak są one odzwierciedlone w architekturze i kulturalnych zabytkach miasta. Od historycznych zamków po nowoczesne przestrzenie miejskie, wycieczki Erika oferują kompleksową i angażującą eksplorację bogatego dziedzictwa Kopenhagi.</p>
+    <p><strong>Informacje:</strong> Erik, pochodzący z Oslo, mieszka w Kopenhadze od 38 lat. W wieku 62 lat wnosi całe życie doświadczeń i głębokie zrozumienie historii i kultury miasta. Z wykształceniem w dziedzinie studiów skandynawskich i pasją do opowiadania historii, Erik od dziesięcioleci oprowadza turystów po ulicach Kopenhagi, dzieląc się swoją rozległą wiedzą i fascynującymi opowieściami.</p>
+    <p><strong>Specjalność:</strong> Erik specjalizuje się w historycznych i kulturalnych wycieczkach pieszych. Szczególnie interesuje się skandynawskimi wpływami na rozwój Kopenhagi i tym, jak są one odzwierciedlone w architekturze i zabytkach kulturowych miasta. Od historycznych zamków po nowoczesne przestrzenie miejskie, wycieczki Erika oferują kompleksową i angażującą eksplorację bogatego dziedzictwa Kopenhagi.</p>
     <p><strong>Języki:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/no.svg" alt="Norweski" class="flag-icon"> Norweski 
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Duński" class="flag-icon"> Duński 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Angielski" class="flag-icon"> Angielski
     </p>
 </section>
-   <!-- Zarezerwuj wycieczkę -->
+<!-- Zarezerwuj wycieczkę -->
 <section id="book">      
     <div class="spacer"></div>
     <h2>Zarezerwuj wycieczkę</h2>
@@ -184,13 +246,15 @@
             <input type="text" id="name" name="name" required>
         </div>
         <div class="form-group">
-            <label for="email">Twój email:</label>
+            <label for="email">Twój e-mail:</label>
             <input type="email" id="email" name="email" required>
         </div>
+
         <div class="form-group">
             <label for="tour-date">Data wycieczki:</label>
             <input type="date" id="tour-date" name="tour-date" required>
         </div>
+
         <div class="form-group">
             <label for="tour-time">Godzina rozpoczęcia wycieczki:</label>
             <select id="tour-time" name="tour-time" required>
@@ -213,10 +277,11 @@
                 <option value="22:00">22:00</option>
             </select>
         </div>
+
         <div class="form-group">
             <label for="guide">Preferowany przewodnik:</label>
             <select id="guide" name="guide" required>
-                <option value="">--Proszę wybrać przewodnika--</option>
+                <option value="">--Proszę wybrać preferowanego przewodnika--</option>
                 <option value="guide1">Ingrid</option>
                 <option value="guide2">Aisha</option>
                 <option value="guide3">Mei</option>
@@ -236,9 +301,12 @@
     <div class="spacer"></div> <br>
     <div class="spacer"></div> 
     <h2>Skontaktuj się z nami</h2>
-    <p>Adres: Amagertorv 6, 1160 København, Email: mail@copenstory.com, Telefon: +45 98765432</p>
+    <p>Adres: Amagertorv 6, 1160 Kopenhaga, E-mail: mail@copenstory.com, Telefon: +45 98765432</p>
 </section>
 
 <footer>
     <p>&copy; 2024 Copenstory - Wycieczki piesze po Kopenhadze. Wszelkie prawa zastrzeżone.</p>
 </footer>
+
+</body>
+</html>

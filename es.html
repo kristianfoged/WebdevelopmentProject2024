@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copenstory - Tours a pie por Copenhague</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -29,6 +30,7 @@
             <nav>
                 <ul class="horizontal_nav">
                     <li><a href="index.html">Tours</a></li>
+                    <li><a href="#sights">Lugares de interés</a></li>
                     <li><a href="#guides">Conoce a los guías</a></li>
                     <li><a href="#book">Reservar un tour</a></li>
                     <li><a href="#contact">Contacto</a></li>
@@ -37,56 +39,118 @@
         </div>
     </header>
    
-        <section id="services">
-            <h2>Tours</h2>
-            <p>En Copenstory, ofrecemos una variedad de tours a pie interesantes e informativos diseñados para mostrar lo mejor de Copenhague. Nuestros servicios incluyen:</p>
-            <ul class="service-list">
-                <li><strong>Tours históricos a pie:</strong> 
-                    <br> Explora la rica historia de Copenhague con nuestros guías expertos. 
-                    <br> Visita lugares emblemáticos, aprende sobre el pasado medieval de la ciudad y escucha historias fascinantes que dan vida a la historia.</li>
-                <li><strong>Tours culturales a pie:</strong> 
-                    <br>Descubre la vibrante cultura de Copenhague. 
-                    <br>Nuestros guías te llevarán a través de los puntos culturales y artísticos de la ciudad, incluyendo museos, galerías y teatros.</li>
-                <li><strong>Tours arquitectónicos a pie:</strong> 
-                    <br>Para los entusiastas de la arquitectura, nuestros tours destacan la mezcla de arquitectura histórica y moderna que define a Copenhague. 
-                    <br>Ve edificios impresionantes y aprende sobre la evolución arquitectónica de la ciudad.</li>
-                <li><strong>Tours privados personalizados:</strong> 
-                    <br>Personaliza tu experiencia con nuestros tours privados personalizados. 
-                    <br>Ya sea que tengas intereses específicos o un itinerario particular en mente, nuestros guías crearán un tour personalizado solo para ti.</li>
-                <li><strong>Tours familiares:</strong> 
-                    <br>Disfruta de una experiencia divertida y educativa con nuestros tours familiares. 
-                    <br>Diseñados para cautivar a visitantes de todas las edades, estos tours incluyen actividades interactivas e historias que capturan tanto a niños como a adultos.</li>
-            </ul>
-        
-        </section>
+    <section id="services">
+        <h2>Tours</h2>
+        <p>En Copenstory, ofrecemos una variedad de tours a pie atractivos e informativos diseñados para mostrar lo mejor de Copenhague. Nuestros servicios incluyen:</p>
+        <ul class="service-list">
+            <li><strong>Tours históricos a pie:</strong> 
+                <br> Explore la rica historia de Copenhague con nuestros guías expertos. 
+                <br> Visite lugares emblemáticos, conozca el pasado medieval de la ciudad y escuche historias fascinantes que dan vida a la historia.</li>
+            <li><strong>Tours culturales a pie:</strong> 
+                <br>Descubra la vibrante cultura de Copenhague. 
+                <br>Nuestros guías lo llevarán a través de los puntos culturales y artísticos de la ciudad, incluidos museos, galerías y teatros.</li>
+            <li><strong>Tours arquitectónicos a pie:</strong> 
+                <br>Para los entusiastas de la arquitectura, nuestros tours destacan la mezcla de arquitectura histórica y moderna que define a Copenhague. 
+                <br>Vea edificios impresionantes y aprenda sobre la evolución arquitectónica de la ciudad.</li>
+            <li><strong>Tours privados personalizados:</strong> 
+                <br>Personalice su experiencia con nuestros tours privados personalizados. 
+                <br>Ya sea que tenga intereses específicos o un itinerario particular en mente, nuestros guías crearán un tour personalizado solo para usted.</li>
+            <li><strong>Tours familiares:</strong> 
+                <br>Disfrute de una experiencia divertida y educativa con nuestros tours familiares. 
+                <br>Diseñados para atraer a visitantes de todas las edades, estos tours incluyen actividades interactivas e historias que cautivarán tanto a niños como a adultos.</li>
+        </ul>
+    </section>
 
-        <section id="guides">      
-            <div class="spacer"></div>
-            <h2>Conoce a los guías</h2>
-        </section>
+    <!-- Mapa de atracciones turísticas -->
+
+<section id="sights">      
+    <div class="spacer"></div>
+    <h2>Principales atracciones turísticas de Copenhague</h2>
+</section>
+
+<section id="map-section">
+    <div id="map"></div>
+</section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+// Inicializar el mapa
+var map = L.map('map').setView([55.6761, 12.5683], 13);
+
+// Añadir mosaicos de OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> colaboradores'
+}).addTo(map);
+
+// Definir las atracciones con categorías y colores
+var attractions = [
+    ["<strong>Jardines de Tivoli</strong><br>Uno de los parques de atracciones más antiguos del mundo, que ofrece atracciones, juegos y hermosos jardines.", 55.6736, 12.5683, "red"],
+    ["<strong>La Sirenita</strong><br>Una famosa estatua de bronce inspirada en el cuento de hadas de Hans Christian Andersen, situada junto al agua.", 55.6929, 12.5993, "blue"],
+    ["<strong>Nyhavn</strong><br>Un puerto del siglo XVII, conocido por sus edificios coloridos y barcos históricos.", 55.6794, 12.5900, "blue"],
+    ["<strong>Palacio de Christiansborg</strong><br>La sede del Parlamento danés, la Corte Suprema y la Oficina del Primer Ministro, con salas de recepción reales y una torre que ofrece vistas panorámicas.", 55.67623, 12.580406, "red"],
+    ["<strong>Castillo de Rosenborg</strong><br>Un castillo renacentista que alberga las joyas de la corona danesa y las insignias reales, rodeado por el Jardín del Rey.", 55.6854, 12.5779, "red"],
+    ["<strong>Palacio de Amalienborg</strong><br>La residencia de la familia real danesa, compuesta por cuatro fachadas de palacio clásicas idénticas alrededor de un patio octogonal.", 55.6848, 12.5938, "red"],
+    ["<strong>El Museo Nacional de Dinamarca</strong><br>El museo de historia cultural más grande de Dinamarca, que muestra artefactos desde la Edad de Piedra hasta la era moderna.", 55.6743, 12.5769, "green"],
+    ["<strong>La Torre Redonda</strong><br>El observatorio en funcionamiento más antiguo de Europa, que ofrece una rampa en espiral única y una vista panorámica de Copenhague.", 55.6829, 12.5735, "red"],
+    ["<strong>Zoológico de Copenhague</strong><br>Uno de los zoológicos más antiguos de Europa, hogar de una gran variedad de animales y conocido por su Casa de los Elefantes diseñada por Norman Foster.", 55.6728, 12.5214, "green"],
+    ["<strong>La Galería Nacional de Dinamarca (SMK)</strong><br>El museo de arte más grande del país, que presenta colecciones de arte danés e internacional de los últimos siete siglos.", 55.6886, 12.5776, "green"],
+    ["<strong>Castillo de Frederiksborg</strong><br>Un impresionante castillo renacentista situado en Hillerød, con hermosos jardines y un museo de historia nacional.", 55.9354, 12.3001, "red"],
+    ["<strong>Castillo de Kronborg</strong><br>Conocido como Elsinore en Hamlet de Shakespeare, este sitio del Patrimonio Mundial de la UNESCO es un magnífico castillo renacentista.", 56.0381, 12.6136, "red"],
+    ["<strong>Ny Carlsberg Glyptotek</strong><br>Un museo de arte con una vasta colección de esculturas y pinturas, incluidas obras de Rodin y Gauguin.", 55.6726, 12.5724, "green"],
+    ["<strong>Jardín Botánico</strong><br>Un hermoso jardín con una gran colección de plantas, invernaderos y una casa de mariposas.", 55.6861, 12.5734, "green"],
+    ["<strong>Strøget</strong><br>Una de las calles peatonales más largas de Europa, que ofrece una variedad de tiendas, cafés y espectáculos callejeros.", 55.6761, 12.5683, "blue"],
+    ["<strong>Freetown Christiania</strong><br>Un barrio único y controvertido conocido por su estilo de vida alternativo y su vibrante escena artística.", 55.6742, 12.5971, "blue"],
+    ["<strong>Den Blå Planet</strong><br>El Acuario Nacional de Dinamarca, que presenta una gran variedad de vida marina y exposiciones interactivas.", 55.6505, 12.6509, "green"],
+    ["<strong>Experimentarium</strong><br>Un centro de ciencias con exposiciones interactivas y actividades para todas las edades, ubicado en Hellerup.", 55.7254, 12.5761, "green"],
+    ["<strong>Amager Strandpark</strong><br>Un popular parque de playa que ofrece natación, tomar el sol y varios deportes acuáticos.", 55.6625, 12.6216, "green"],
+    ["<strong>Iglesia de Nuestro Salvador</strong><br>Famosa por su aguja en forma de sacacorchos con una escalera exterior que ofrece vistas panorámicas de la ciudad.", 55.6731, 12.5931, "red"],
+    ["<strong>Rundetårn</strong><br>Una torre y observatorio del siglo XVII con una rampa en espiral única y vistas panorámicas de Copenhague.", 55.6829, 12.5735, "red"],
+    ["<strong>Jardín del Rey</strong><br>El jardín real más antiguo de Dinamarca, situado junto al castillo de Rosenborg, perfecto para un paseo relajante.", 55.6854, 12.5779, "green"],
+    ["<strong>Iglesia de Frederik (La Iglesia de Mármol)</strong><br>Una hermosa iglesia barroca conocida por su impresionante cúpula y su arquitectura impresionante.", 55.6844, 12.5919, "red"],
+    ["<strong>Planetario Tycho Brahe</strong><br>Un planetario que ofrece espectáculos educativos y exposiciones sobre astronomía y exploración espacial.", 55.6736, 12.5584, "green"],
+    ["<strong>Cervecería Carlsberg</strong><br>Visite la histórica cervecería para aprender sobre el proceso de elaboración de la cerveza y disfrutar de una sesión de degustación.", 55.6658, 12.5431, "blue"]
+];
+
+// Añadir marcadores para las atracciones con diferentes colores
+attractions.forEach(function(attraction) {
+    var color = attraction[3];
+    var marker = L.circleMarker([attraction[1], attraction[2]], {
+        color: color,
+        radius: 8,
+        fillOpacity: 0.8
+    }).addTo(map);
+    marker.bindPopup(attraction[0]);
+});
+</script>
+
+<!-- Conoce a los guías -->
+
+<section id="guides">      
+    <div class="spacer"></div>
+    <h2>Conoce a los guías</h2>
+</section>
        
-     
-<!-- Guía1: Ingrid -->
-        <section class="guide-profile">
-            <h2>Conoce a Ingrid</h2>
-            <img src="images/guide1.png" alt="Ingrid - Guía de Tours a Pie" class="guide-image">
-            <p><strong>Antecedentes:</strong> Ingrid es nativa de Copenhague y tiene una profunda pasión por la rica historia y la vibrante cultura de su ciudad. Con más de 30 años de experiencia como guía turística, tiene un conocimiento extenso de los monumentos, los tesoros escondidos y las anécdotas históricas de Copenhague. La personalidad cálida de Ingrid y su capacidad para contar historias hacen que sus tours sean tanto informativos como agradables.</p>
-            <p><strong>Especialidad:</strong> Ingrid se especializa en tours históricos y culturales a pie. Tiene un interés particular en la historia medieval de Copenhague y le encanta compartir historias sobre la evolución de la ciudad a lo largo de los siglos. Ya sean las maravillas arquitectónicas del casco antiguo o los encantadores relatos del folclore local, Ingrid da vida al pasado con sus narraciones cautivadoras.</p>
-            <p><strong>Idiomas:</strong> 
-            <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danés" class="flag-icon"> Danés
-            <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés
-            <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italiano" class="flag-icon"> Italiano
-            <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="Francés" class="flag-icon"> Francés
-            <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Alemán" class="flag-icon"> Alemán
-            </p>
-        </section>
+<!-- Guide1: Ingrid -->
+<section class="guide-profile">
+    <h2>Conoce a Ingrid</h2>
+    <img src="images/guide1.png" alt="Ingrid - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Ingrid es nativa de Copenhague y tiene una profunda pasión por la rica historia y la vibrante cultura de su ciudad. Con más de 30 años de experiencia como guía turística, tiene un amplio conocimiento de los monumentos, los tesoros ocultos y las anécdotas históricas de Copenhague. La cálida personalidad de Ingrid y su habilidad para contar historias hacen que sus tours sean tanto informativos como agradables.</p>
+    <p><strong>Especialidad:</strong> Ingrid se especializa en tours a pie históricos y culturales. Tiene un interés particular en la historia medieval de Copenhague y le encanta compartir historias sobre la evolución de la ciudad a lo largo de los siglos. Ya sea las maravillas arquitectónicas del casco antiguo o los encantadores relatos del folclore local, Ingrid da vida al pasado con sus narraciones cautivadoras.</p>
+    <p><strong>Idiomas:</strong> 
+        <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danés" class="flag-icon"> Danés
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés
+        <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italiano" class="flag-icon"> Italiano
+        <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="Francés" class="flag-icon"> Francés
+        <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Alemán" class="flag-icon"> Alemán
+    </p>
+</section>
 
-<!-- Guía2: Aisha -->
+<!-- Guide2: Aisha -->
 <section class="guide-profile">
     <h2>Conoce a Aisha</h2>
-    <img src="images/guide2.png" alt="Aisha - Guía de Tours a Pie" class="guide-image">
-    <p><strong>Antecedentes:</strong> Aisha, originaria de Londres, ha adoptado Copenhague como su hogar durante la última década. Con una rica experiencia en historia y un talento para contar historias, Aisha ha estado guiando a los visitantes por las encantadoras calles de Copenhague durante más de 10 años. Su amplio conocimiento de los monumentos de la ciudad, los tesoros escondidos y las anécdotas históricas, combinado con su personalidad cálida y atractiva, hace que sus tours sean tanto informativos como agradables.</p>
-    <p><strong>Especialidad:</strong> Aisha se especializa en tours a pie contemporáneos e históricos. Tiene un interés particular en el desarrollo moderno de Copenhague así como en su rico pasado histórico. Desde la arquitectura innovadora de las nuevas áreas portuarias hasta las historias cautivadoras de los orígenes vikingos de la ciudad, Aisha aporta una perspectiva única y perspicaz a cada tour. Su capacidad para fusionar armoniosamente lo antiguo con lo nuevo asegura que cada visitante adquiera una comprensión completa de la evolución de Copenhague.</p>
+    <img src="images/guide2.png" alt="Aisha - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Aisha, originaria de Londres, ha adoptado Copenhague como su hogar durante la última década. Con un rico trasfondo en historia y un talento para contar historias, Aisha ha estado guiando a los visitantes por las encantadoras calles de Copenhague durante más de 10 años. Su amplio conocimiento de los monumentos, los tesoros ocultos y las anécdotas históricas de la ciudad, combinado con su personalidad cálida y atractiva, hace que sus tours sean tanto informativos como agradables.</p>
+    <p><strong>Especialidad:</strong> Aisha se especializa en tours a pie tanto contemporáneos como históricos. Tiene un interés particular en el desarrollo moderno de Copenhague, así como en su rico pasado histórico. Desde la arquitectura innovadora de las nuevas áreas portuarias hasta las historias cautivadoras de los orígenes vikingos de la ciudad, Aisha aporta una perspectiva única y perspicaz a cada tour. Su capacidad para combinar armoniosamente lo antiguo y lo nuevo garantiza que cada visitante adquiera una comprensión completa de la evolución de Copenhague.</p>
     <p><strong>Idiomas:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés 
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danés" class="flag-icon"> Danés 
@@ -94,69 +158,64 @@
     </p>
 </section>
 
-
-
-
-
-
 <!-- Guide3: Mei -->
 <section class="guide-profile">
-    <h2>Treffen Sie Mei</h2>
-    <img src="images/guide3.png" alt="Mei - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Mei, ursprünglich aus San Francisco, hat ein reiches Erbe, das chinesische und amerikanische Kulturen verbindet. Seit 20 Jahren nennt sie Kopenhagen ihr Zuhause. Mit einem Hintergrund in Kulturwissenschaften und einer lebenslangen Leidenschaft für Geschichte führt Mei seit über 15 Jahren Besucher durch die bezaubernden Straßen Kopenhagens. Ihr tiefes Wissen über die Geschichte der Stadt, kombiniert mit ihrer warmen und einnehmenden Persönlichkeit, macht ihre Touren sowohl lehrreich als auch angenehm.</p>
-    <p><strong>Fachgebiet:</strong> Mei ist auf kulturelle und historische Stadtrundgänge spezialisiert. Sie interessiert sich besonders für die vielfältigen kulturellen Einflüsse, die Kopenhagen im Laufe der Jahrhunderte geprägt haben. Von den alten Wikingerwurzeln der Stadt bis hin zu ihrer modernen multikulturellen Landschaft bringt Mei eine einzigartige und aufschlussreiche Perspektive in jede Tour ein. Ihre Fähigkeit, historische Ereignisse mit der zeitgenössischen Kultur zu verbinden, stellt sicher, dass jeder Besucher mit einem tieferen Verständnis des reichen Erbes Kopenhagens abreist.</p>
-    <p><strong>Sprachen:</strong> 
-        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch 
-        <img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="Mandarin" class="flag-icon"> Mandarin 
-         <!-- <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch -->
+    <h2>Conoce a Mei</h2>
+    <img src="images/guide3.png" alt="Mei - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Mei, originaria de San Francisco, tiene una rica herencia que combina las culturas china y estadounidense. Ha llamado a Copenhague su hogar durante los últimos 20 años. Con un trasfondo en estudios culturales y una pasión de toda la vida por la historia, Mei ha estado guiando a los visitantes por las encantadoras calles de Copenhague durante más de 15 años. Su profundo conocimiento de la historia de la ciudad, combinado con su personalidad cálida y atractiva, hace que sus tours sean tanto educativos como agradables.</p>
+    <p><strong>Especialidad:</strong> Mei se especializa en tours a pie culturales e históricos. Tiene un interés particular en las diversas influencias culturales que han moldeado Copenhague a lo largo de los siglos. Desde las antiguas raíces vikingas de la ciudad hasta su moderno paisaje multicultural, Mei aporta una perspectiva única y perspicaz a cada tour. Su capacidad para conectar eventos históricos con la cultura contemporánea garantiza que cada visitante se vaya con una comprensión más profunda del rico patrimonio de Copenhague.</p>
+    <p><strong>Idiomas:</strong> 
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés 
+        <img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="Mandarín" class="flag-icon"> Mandarín 
+         <!-- <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danés" class="flag-icon"> Danés -->
     </p>
 </section>
 
 <!-- Guide4: Yuki -->
 <section class="guide-profile">
-    <h2>Treffen Sie Yuki</h2>
-    <img src="images/guide4.png" alt="Yuki - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Yuki, ursprünglich aus Tokio, lebt seit zwei Jahren als Architekturstudentin in Kopenhagen. Ihre Leidenschaft für Design und Stadtplanung gibt ihr eine einzigartige Perspektive auf die architektonische Landschaft der Stadt. Yukis Begeisterung für traditionelle und moderne Architektur, kombiniert mit ihren frischen Einblicken als Studentin, macht ihre Touren spannend und informativ.</p>
-    <p><strong>Fachgebiet:</strong> Yuki ist auf architektonische Stadtrundgänge spezialisiert. Sie interessiert sich besonders für die Mischung aus historischer und zeitgenössischer Architektur, die Kopenhagen definiert. Von den ikonischen Türmen der Altstadt bis hin zu den modernen Designs der neuen Hafenbereiche heben Yukis Touren die architektonische Entwicklung der Stadt hervor. Ihre Fähigkeit, komplexe architektonische Konzepte auf verständliche Weise zu erklären, stellt sicher, dass jeder Besucher eine tiefere Wertschätzung für die gebaute Umwelt Kopenhagens gewinnt.</p>
-    <p><strong>Sprachen:</strong> 
-        <img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" alt="Japanisch" class="flag-icon"> Japanisch 
-        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch
-       <!-- <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch -->
+    <h2>Conoce a Yuki</h2>
+    <img src="images/guide4.png" alt="Yuki - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Yuki, originaria de Tokio, ha estado viviendo en Copenhague durante los últimos dos años como estudiante de arquitectura. Su pasión por el diseño y la planificación urbana le ha dado una perspectiva única sobre el paisaje arquitectónico de la ciudad. El entusiasmo de Yuki por la arquitectura tanto tradicional como moderna, combinado con sus nuevas perspectivas como estudiante, hace que sus tours sean atractivos e informativos.</p>
+    <p><strong>Especialidad:</strong> Yuki se especializa en tours a pie arquitectónicos. Tiene un gran interés en la mezcla de arquitectura histórica y contemporánea que define a Copenhague. Desde las icónicas agujas del casco antiguo hasta los diseños de vanguardia de las nuevas áreas portuarias, los tours de Yuki destacan la evolución arquitectónica de la ciudad. Su capacidad para explicar conceptos arquitectónicos complejos de manera accesible garantiza que cada visitante adquiera una apreciación más profunda del entorno construido de Copenhague.</p>
+    <p><strong>Idiomas:</strong> 
+        <img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" alt="Japonés" class="flag-icon"> Japonés 
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés
+       <!-- <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danés" class="flag-icon"> Danés -->
     </p>
 </section>
 
-<!-- Guide5: Lars -->
+<!-- Guía5: Lars -->
 <section class="guide-profile">
-    <h2>Treffen Sie Lars</h2>
-    <img src="images/guide5.png" alt="Lars - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Lars, ein gebürtiger Kopenhagener, hat eine tiefe Leidenschaft für die Geschichte und Kultur seiner Stadt. Mit 28 Jahren hat er die letzten fünf Jahre damit verbracht, Besucher durch die lebhaften Straßen Kopenhagens zu führen. Mit einem Hintergrund in Kulturwissenschaften und einer Liebe zum Geschichtenerzählen bringt Lars eine Fülle von Wissen und Begeisterung in seine Touren ein.</p>
-    <p><strong>Fachgebiet:</strong> Lars ist auf kulturelle und historische Stadtrundgänge spezialisiert. Er interessiert sich besonders für die soziale und kulturelle Entwicklung Kopenhagens, von den mittelalterlichen Anfängen bis hin zum modernen Charme. Ob er das historische Viertel Nyhavn erkundet oder die zeitgenössische Architektur der Stadt, Lars' Touren bieten einen umfassenden und fesselnden Blick auf die Vergangenheit und Gegenwart Kopenhagens.</p>
-    <p><strong>Sprachen:</strong> 
-        <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch 
-        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch 
-        <img src="https://flagicons.lipis.dev/flags/4x3/se.svg" alt="Schwedisch" class="flag-icon"> Schwedisch
+    <h2>Conoce a Lars</h2>
+    <img src="images/guide5.png" alt="Lars - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Lars, nativo de Copenhague, tiene una pasión profunda por la historia y la cultura de su ciudad. A los 28 años, ha pasado los últimos cinco años guiando a los visitantes por las vibrantes calles de Copenhague. Con un trasfondo en estudios culturales y un amor por contar historias, Lars aporta una gran cantidad de conocimientos y entusiasmo a sus tours.</p>
+    <p><strong>Especialidad:</strong> Lars se especializa en tours a pie culturales e históricos. Tiene un interés particular en la evolución social y cultural de Copenhague, desde sus inicios medievales hasta su encanto moderno. Ya sea explorando el histórico distrito de Nyhavn o la arquitectura contemporánea de la ciudad, los tours de Lars ofrecen una visión completa y atractiva del pasado y el presente de Copenhague.</p>
+    <p><strong>Idiomas:</strong> 
+        <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danés" class="flag-icon"> Danés 
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés 
+        <img src="https://flagicons.lipis.dev/flags/4x3/se.svg" alt="Sueco" class="flag-icon"> Sueco
     </p>
 </section>
 
-<!-- Guide6: Marco -->
+<!-- Guía6: Marco -->
 <section class="guide-profile">
-    <h2>Treffen Sie Marco</h2>
-    <img src="images/guide6.png" alt="Marco - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Marco, ursprünglich aus Rom, lebt seit fünf Jahren in Kopenhagen. Mit 35 Jahren bringt er eine reiche kulturelle Perspektive in seine Touren ein, indem er sein italienisches Erbe mit seiner tiefen Wertschätzung für die dänische Kultur verbindet. Mit einem Hintergrund in Kunstgeschichte und einer Leidenschaft für die Erkundung urbaner Landschaften führt Marco Besucher mit Begeisterung und Fachwissen durch die Straßen Kopenhagens.</p>
-    <p><strong>Fachgebiet:</strong> Marco ist auf künstlerische und kulturelle Stadtrundgänge spezialisiert. Er interessiert sich besonders für den künstlerischen und kulturellen Austausch zwischen Italien und Dänemark und wie diese Einflüsse in der Architektur und den öffentlichen Räumen Kopenhagens widergespiegelt werden. Von der klassischen Schönheit historischer Gebäude bis hin zu den innovativen Designs zeitgenössischer Strukturen bieten Marcos Touren eine einzigartige und aufschlussreiche Erkundung des künstlerischen Erbes Kopenhagens.</p>
-    <p><strong>Sprachen:</strong> 
-        <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italienisch" class="flag-icon"> Italienisch 
-        <img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spanisch" class="flag-icon"> Spanisch 
-        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch 
+    <h2>Conoce a Marco</h2>
+    <img src="images/guide6.png" alt="Marco - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Marco, originario de Roma, ha estado viviendo en Copenhague durante los últimos cinco años. A los 35 años, aporta una rica perspectiva cultural a sus tours, combinando su herencia italiana con su profunda apreciación por la cultura danesa. Con un trasfondo en historia del arte y una pasión por explorar paisajes urbanos, Marco ha estado guiando a los visitantes por las calles de Copenhague con entusiasmo y experiencia.</p>
+    <p><strong>Especialidad:</strong> Marco se especializa en tours a pie de arte y cultura. Tiene un interés particular en los intercambios artísticos y culturales entre Italia y Dinamarca, y cómo estas influencias se reflejan en la arquitectura y los espacios públicos de Copenhague. Desde la belleza clásica de los edificios históricos hasta los diseños innovadores de las estructuras contemporáneas, los tours de Marco ofrecen una exploración única y perspicaz del patrimonio artístico de Copenhague.</p>
+    <p><strong>Idiomas:</strong> 
+        <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italiano" class="flag-icon"> Italiano 
+        <img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Español" class="flag-icon"> Español 
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés 
     </p>
 </section>
 
 <!-- Guía7: Lukas -->
 <section class="guide-profile">
     <h2>Conoce a Lukas</h2>
-    <img src="images/guide7.png" alt="Lukas - Guía de Tours a Pie" class="guide-image">
-    <p><strong>Antecedentes:</strong> Lukas, originario de Viena, ha estado viviendo en Copenhague durante los últimos tres años. A los 38 años, aporta una gran experiencia y una perspectiva única a sus tours. Con una formación en historia europea y una pasión por el intercambio cultural, Lukas ha estado guiando a los visitantes por las hermosas calles de Copenhague, compartiendo sus ideas e historias con entusiasmo.</p>
-    <p><strong>Especialidad:</strong> Lukas se especializa en tours a pie históricos y culturales. Tiene un interés particular en las conexiones históricas entre Austria y Dinamarca, y cómo estas influencias se reflejan en la arquitectura y los monumentos culturales de Copenhague. Desde la grandeza de los palacios reales hasta el encanto de los patios escondidos, los tours de Lukas ofrecen una rica y atractiva exploración del patrimonio histórico y cultural de Copenhague.</p>
+    <img src="images/guide7.png" alt="Lukas - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Lukas, originario de Viena, ha estado viviendo en Copenhague durante los últimos tres años. A los 38 años, aporta una gran cantidad de experiencia y una perspectiva única a sus tours. Con un trasfondo en historia europea y una pasión por el intercambio cultural, Lukas ha estado guiando a los visitantes por las hermosas calles de Copenhague, compartiendo sus ideas e historias con entusiasmo.</p>
+    <p><strong>Especialidad:</strong> Lukas se especializa en tours a pie históricos y culturales. Tiene un interés particular en las conexiones históricas entre Austria y Dinamarca, y cómo estas influencias se reflejan en la arquitectura y los monumentos culturales de Copenhague. Desde la grandeza de los palacios reales hasta el encanto de los patios ocultos, los tours de Lukas ofrecen una rica y atractiva exploración del patrimonio histórico y cultural de Copenhague.</p>
     <p><strong>Idiomas:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Alemán" class="flag-icon"> Alemán 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés 
@@ -167,8 +226,8 @@
 <!-- Guía8: Erik -->
 <section class="guide-profile">
     <h2>Conoce a Erik</h2>
-    <img src="images/guide8.png" alt="Erik - Guía de Tours a Pie" class="guide-image">
-    <p><strong>Antecedentes:</strong> Erik, originario de Oslo, ha estado viviendo en Copenhague durante los últimos 38 años. A los 62 años, aporta una vida de experiencia y una comprensión profunda de la historia y la cultura de la ciudad. Con una formación en estudios escandinavos y una pasión por contar historias, Erik ha estado guiando a los visitantes por las calles de Copenhague durante décadas, compartiendo sus vastos conocimientos y relatos cautivadores.</p>
+    <img src="images/guide8.png" alt="Erik - Guía de tours a pie" class="guide-image">
+    <p><strong>Antecedentes:</strong> Erik, originario de Oslo, ha estado viviendo en Copenhague durante los últimos 38 años. A los 62 años, aporta una vida de experiencia y una comprensión profunda de la historia y la cultura de la ciudad. Con un trasfondo en estudios escandinavos y una pasión por contar historias, Erik ha estado guiando a los visitantes por las calles de Copenhague durante décadas, compartiendo sus vastos conocimientos y relatos cautivadores.</p>
     <p><strong>Especialidad:</strong> Erik se especializa en tours a pie históricos y culturales. Tiene un interés particular en las influencias escandinavas en el desarrollo de Copenhague y cómo se reflejan en la arquitectura y los monumentos culturales de la ciudad. Desde los castillos históricos hasta los espacios urbanos modernos, los tours de Erik ofrecen una exploración completa y atractiva del rico patrimonio de Copenhague.</p>
     <p><strong>Idiomas:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/no.svg" alt="Noruego" class="flag-icon"> Noruego 
@@ -176,7 +235,8 @@
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Inglés" class="flag-icon"> Inglés
     </p>
 </section>
- <!-- Reservar un tour -->
+
+<!-- Reservar un tour -->
 <section id="book">      
     <div class="spacer"></div>
     <h2>Reservar un tour</h2>
@@ -192,10 +252,12 @@
             <label for="email">Tu correo electrónico:</label>
             <input type="email" id="email" name="email" required>
         </div>
+
         <div class="form-group">
             <label for="tour-date">Fecha del tour:</label>
             <input type="date" id="tour-date" name="tour-date" required>
         </div>
+
         <div class="form-group">
             <label for="tour-time">Hora de inicio del tour:</label>
             <select id="tour-time" name="tour-time" required>
@@ -218,10 +280,11 @@
                 <option value="22:00">22:00</option>
             </select>
         </div>
+
         <div class="form-group">
             <label for="guide">Guía preferido:</label>
             <select id="guide" name="guide" required>
-                <option value="">--Por favor elige un guía--</option>
+                <option value="">--Por favor elige un guía preferido--</option>
                 <option value="guide1">Ingrid</option>
                 <option value="guide2">Aisha</option>
                 <option value="guide3">Mei</option>
@@ -241,9 +304,12 @@
     <div class="spacer"></div> <br>
     <div class="spacer"></div> 
     <h2>Contáctanos</h2>
-    <p>Dirección: Amagertorv 6, 1160 København, Correo electrónico: mail@copenstory.com, Teléfono: +45 98765432</p>
+    <p>Dirección: Amagertorv 6, 1160 Copenhague, Correo electrónico: mail@copenstory.com, Teléfono: +45 98765432</p>
 </section>
 
 <footer>
     <p>&copy; 2024 Copenstory - Tours a pie por Copenhague. Todos los derechos reservados.</p>
 </footer>
+
+</body>
+</html>

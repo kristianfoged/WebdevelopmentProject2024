@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copenstory - Kopenhagen Stadtrundgänge</title>
+    <title>Copenstory - Kopenhagener Stadtrundgänge</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -19,88 +20,150 @@
                 </div>
             </div>
             <div class="main-header">
-                <img src="images/copenstory_logo.png" alt="Copenstory Logo" class="logo_left">
+                <img src="images/copenstory_logo.png" alt="Copenstory-Logo" class="logo_left">
                 <ul class="header_text">
                     <li class="main_title">Copenstory</li>
-                    <li class="sub_title">Kopenhagen Stadtrundgänge</li>
+                    <li class="sub_title">Kopenhagener Stadtrundgänge</li>
                 </ul>
-                <img src="images/copenstory_logo.png" alt="Copenstory Logo" class="logo_right">
+                <img src="images/copenstory_logo.png" alt="Copenstory-Logo" class="logo_right">
             </div>
             <nav>
                 <ul class="horizontal_nav">
                     <li><a href="index.html">Touren</a></li>
+                    <li><a href="#sights">Sehenswürdigkeiten</a></li>
                     <li><a href="#guides">Treffen Sie die Guides</a></li>
-                    <li><a href="#book">Eine Tour buchen</a></li>
+                    <li><a href="#book">Tour buchen</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
     </header>
    
-        <section id="services">
-            <h2>Touren</h2>
-            <p>Bei Copenstory bieten wir eine Reihe von spannenden und informativen Stadtrundgängen an, die das Beste von Kopenhagen zeigen. Unsere Dienstleistungen umfassen:</p>
-            <ul class="service-list">
-                <li><strong>Historische Stadtrundgänge:</strong> 
-                    <br> Erkunden Sie die reiche Geschichte Kopenhagens mit unseren erfahrenen Guides. 
-                    <br> Besuchen Sie ikonische Wahrzeichen, erfahren Sie mehr über die mittelalterliche Vergangenheit der Stadt und hören Sie faszinierende Geschichten, die die Geschichte lebendig werden lassen.</li>
-                <li><strong>Kulturelle Stadtrundgänge:</strong> 
-                    <br>Entdecken Sie die lebendige Kultur Kopenhagens. 
-                    <br>Unsere Guides führen Sie durch die künstlerischen und kulturellen Hotspots der Stadt, einschließlich Museen, Galerien und Theatern.</li>
-                <li><strong>Architektonische Stadtrundgänge:</strong> 
-                    <br>Für Architekturbegeisterte heben unsere Touren die Mischung aus historischer und moderner Architektur hervor, die Kopenhagen prägt. 
-                    <br>Sehen Sie beeindruckende Gebäude und erfahren Sie mehr über die architektonische Entwicklung der Stadt.</li>
-                <li><strong>Individuelle private Touren:</strong> 
-                    <br>Gestalten Sie Ihr Erlebnis mit unseren individuellen privaten Touren. 
-                    <br>Ob Sie spezielle Interessen haben oder eine bestimmte Route im Sinn haben, unsere Guides erstellen eine maßgeschneiderte Tour nur für Sie.</li>
-                <li><strong>Familienfreundliche Touren:</strong> 
-                    <br>Genießen Sie ein unterhaltsames und lehrreiches Erlebnis mit unseren familienfreundlichen Touren. 
-                    <br>Diese Touren sind darauf ausgelegt, Besucher jeden Alters zu begeistern und beinhalten interaktive Aktivitäten und Geschichten, die sowohl Kinder als auch Erwachsene fesseln.</li>
-            </ul>
-        
-        </section>
+    <section id="services">
+        <h2>Touren</h2>
+        <p>Bei Copenstory bieten wir eine Reihe von spannenden und informativen Stadtrundgängen an, die das Beste von Kopenhagen zeigen. Unsere Dienstleistungen umfassen:</p>
+        <ul class="service-list">
+            <li><strong>Historische Stadtrundgänge:</strong> 
+                <br> Erkunden Sie die reiche Geschichte Kopenhagens mit unseren erfahrenen Guides. 
+                <br> Besuchen Sie ikonische Wahrzeichen, erfahren Sie mehr über die mittelalterliche Vergangenheit der Stadt und hören Sie faszinierende Geschichten, die die Geschichte lebendig werden lassen.</li>
+            <li><strong>Kulturelle Stadtrundgänge:</strong> 
+                <br>Entdecken Sie die lebendige Kultur Kopenhagens. 
+                <br>Unsere Guides führen Sie durch die künstlerischen und kulturellen Hotspots der Stadt, einschließlich Museen, Galerien und Theatern.</li>
+            <li><strong>Architektonische Stadtrundgänge:</strong> 
+                <br>Für Architekturbegeisterte heben unsere Touren die Mischung aus historischer und moderner Architektur hervor, die Kopenhagen prägt. 
+                <br>Sehen Sie beeindruckende Gebäude und erfahren Sie mehr über die architektonische Entwicklung der Stadt.</li>
+            <li><strong>Individuelle private Touren:</strong> 
+                <br>Gestalten Sie Ihr Erlebnis mit unseren individuellen privaten Touren. 
+                <br>Ob Sie spezielle Interessen haben oder eine bestimmte Reiseroute im Sinn haben, unsere Guides erstellen eine maßgeschneiderte Tour nur für Sie.</li>
+            <li><strong>Familienfreundliche Touren:</strong> 
+                <br>Genießen Sie ein unterhaltsames und lehrreiches Erlebnis mit unseren familienfreundlichen Touren. 
+                <br>Diese Touren sind so gestaltet, dass sie Besucher jeden Alters ansprechen, und beinhalten interaktive Aktivitäten und Geschichten, die sowohl Kinder als auch Erwachsene fesseln.</li>
+        </ul>
+    </section>
 
-        <section id="guides">      
-            <div class="spacer"></div>
-            <h2>Treffen Sie die Guides</h2>
-        </section>
+<!-- Karte der Sehenswürdigkeiten -->
+
+<section id="sights">      
+    <div class="spacer"></div>
+    <h2>Top-Touristenattraktionen in Kopenhagen</h2>
+</section>
+
+<section id="map-section">
+    <div id="map"></div>
+</section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+// Karte initialisieren
+var map = L.map('map').setView([55.6761, 12.5683], 13);
+
+// OpenStreetMap-Kacheln hinzufügen
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> Mitwirkende'
+}).addTo(map);
+
+// Sehenswürdigkeiten mit Kategorien und Farben definieren
+var attractions = [
+    ["<strong>Tivoli Gärten</strong><br>Einer der ältesten Vergnügungsparks der Welt, bietet Fahrgeschäfte, Spiele und schöne Gärten.", 55.6736, 12.5683, "red"],
+    ["<strong>Die kleine Meerjungfrau</strong><br>Eine berühmte Bronzestatue, inspiriert von Hans Christian Andersens Märchen, am Wasser gelegen.", 55.6929, 12.5993, "blue"],
+    ["<strong>Nyhavn</strong><br>Ein Hafenviertel aus dem 17. Jahrhundert, bekannt für seine bunten Gebäude und historischen Schiffe.", 55.6794, 12.5900, "blue"],
+    ["<strong>Schloss Christiansborg</strong><br>Der Sitz des dänischen Parlaments, des Obersten Gerichtshofs und des Büros des Premierministers, mit königlichen Empfangsräumen und einem Turm mit Panoramablick.", 55.67623, 12.580406, "red"],
+    ["<strong>Schloss Rosenborg</strong><br>Ein Renaissance-Schloss, das die dänischen Kronjuwelen und Insignien beherbergt, umgeben vom Königsgarten.", 55.6854, 12.5779, "red"],
+    ["<strong>Schloss Amalienborg</strong><br>Die Residenz der dänischen Königsfamilie, bestehend aus vier identischen klassischen Palastfassaden um einen achteckigen Hof.", 55.6848, 12.5938, "red"],
+    ["<strong>Das Nationalmuseum von Dänemark</strong><br>Das größte kulturhistorische Museum Dänemarks, zeigt Artefakte von der Steinzeit bis zur Moderne.", 55.6743, 12.5769, "green"],
+    ["<strong>Der Runde Turm</strong><br>Das älteste funktionierende Observatorium Europas, bietet eine einzigartige Spirale und einen Panoramablick auf Kopenhagen.", 55.6829, 12.5735, "red"],
+    ["<strong>Kopenhagener Zoo</strong><br>Einer der ältesten Zoos in Europa, beherbergt eine Vielzahl von Tieren und ist bekannt für das von Norman Foster entworfene Elefantenhaus.", 55.6728, 12.5214, "green"],
+    ["<strong>Die Nationalgalerie von Dänemark (SMK)</strong><br>Das größte Kunstmuseum des Landes, zeigt Sammlungen dänischer und internationaler Kunst aus den letzten sieben Jahrhunderten.", 55.6886, 12.5776, "green"],
+    ["<strong>Schloss Frederiksborg</strong><br>Ein atemberaubendes Renaissance-Schloss in Hillerød, mit schönen Gärten und einem Museum der Nationalgeschichte.", 55.9354, 12.3001, "red"],
+    ["<strong>Schloss Kronborg</strong><br>Bekannt als Elsinore in Shakespeares Hamlet, ist dieses UNESCO-Weltkulturerbe ein prächtiges Renaissance-Schloss.", 56.0381, 12.6136, "red"],
+    ["<strong>Ny Carlsberg Glyptotek</strong><br>Ein Kunstmuseum mit einer umfangreichen Sammlung von Skulpturen und Gemälden, darunter Werke von Rodin und Gauguin.", 55.6726, 12.5724, "green"],
+    ["<strong>Botanischer Garten</strong><br>Ein schöner Garten mit einer großen Sammlung von Pflanzen, Gewächshäusern und einem Schmetterlingshaus.", 55.6861, 12.5734, "green"],
+    ["<strong>Strøget</strong><br>Eine der längsten Fußgängerzonen Europas, bietet eine Vielzahl von Geschäften, Cafés und Straßenaufführungen.", 55.6761, 12.5683, "blue"],
+    ["<strong>Freistadt Christiania</strong><br>Ein einzigartiges und umstrittenes Viertel, bekannt für seinen alternativen Lebensstil und seine lebendige Kunstszene.", 55.6742, 12.5971, "blue"],
+    ["<strong>Den Blå Planet</strong><br>Das Nationalaquarium Dänemarks, zeigt eine Vielzahl von Meereslebewesen und interaktive Ausstellungen.", 55.6505, 12.6509, "green"],
+    ["<strong>Experimentarium</strong><br>Ein Wissenschaftszentrum mit interaktiven Ausstellungen und Aktivitäten für alle Altersgruppen, in Hellerup gelegen.", 55.7254, 12.5761, "green"],
+    ["<strong>Amager Strandpark</strong><br>Ein beliebter Strandpark, der Schwimmen, Sonnenbaden und verschiedene Wassersportarten bietet.", 55.6625, 12.6216, "green"],
+    ["<strong>Kirche Unser Erlöser</strong><br>Berühmt für ihren korkenzieherförmigen Turm mit einer Außentreppe, die einen Panoramablick auf die Stadt bietet.", 55.6731, 12.5931, "red"],
+    ["<strong>Rundetårn</strong><br>Ein Turm und Observatorium aus dem 17. Jahrhundert mit einer einzigartigen Spirale und Panoramablick auf Kopenhagen.", 55.6829, 12.5735, "red"],
+    ["<strong>Königsgarten</strong><br>Der älteste königliche Garten Dänemarks, neben dem Schloss Rosenborg gelegen, ideal für einen entspannenden Spaziergang.", 55.6854, 12.5779, "green"],
+    ["<strong>Frederiks Kirche (Die Marmorkirche)</strong><br>Eine schöne barocke Kirche, bekannt für ihre beeindruckende Kuppel und atemberaubende Architektur.", 55.6844, 12.5919, "red"],
+    ["<strong>Tycho Brahe Planetarium</strong><br>Ein Planetarium, das Bildungsshows und Ausstellungen über Astronomie und Weltraumforschung bietet.", 55.6736, 12.5584, "green"],
+    ["<strong>Carlsberg Brauerei</strong><br>Besuchen Sie die historische Brauerei, um mehr über den Brauprozess zu erfahren und eine Verkostung zu genießen.", 55.6658, 12.5431, "blue"]
+];
+
+// Marker für die Sehenswürdigkeiten mit verschiedenen Farben hinzufügen
+attractions.forEach(function(attraction) {
+    var color = attraction[3];
+    var marker = L.circleMarker([attraction[1], attraction[2]], {
+        color: color,
+        radius: 8,
+        fillOpacity: 0.8
+    }).addTo(map);
+    marker.bindPopup(attraction[0]);
+});
+</script>
+
+<!-- Treffen Sie die Guides -->
+
+<section id="guides">      
+    <div class="spacer"></div>
+    <h2>Treffen Sie die Guides</h2>
+</section>
        
-     
 <!-- Guide1: Ingrid -->
-        <section class="guide-profile">
-            <h2>Treffen Sie Ingrid</h2>
-            <img src="images/guide1.png" alt="Ingrid - Stadtrundgang Guide" class="guide-image">
-            <p><strong>Hintergrund:</strong> Ingrid ist eine gebürtige Kopenhagenerin mit einer tiefen Leidenschaft für die reiche Geschichte und lebendige Kultur ihrer Stadt. Mit über 30 Jahren Erfahrung als Tourguide verfügt sie über umfangreiche Kenntnisse der Wahrzeichen Kopenhagens, versteckter Schätze und historischer Anekdoten. Ingrids warme Persönlichkeit und fesselnde Erzählweise machen ihre Touren sowohl informativ als auch unterhaltsam.</p>
-            <p><strong>Fachgebiet:</strong> Ingrid ist auf historische und kulturelle Stadtrundgänge spezialisiert. Sie hat ein besonderes Interesse an der mittelalterlichen Geschichte Kopenhagens und teilt gerne Geschichten über die Entwicklung der Stadt im Laufe der Jahrhunderte. Ob es die architektonischen Wunder der Altstadt oder die charmanten Erzählungen der lokalen Folklore sind, Ingrid erweckt die Vergangenheit mit ihren fesselnden Erzählungen zum Leben.</p>
-            <p><strong>Sprachen:</strong> 
-            <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch
-            <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch
-            <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italienisch" class="flag-icon"> Italienisch
-            <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="Französisch" class="flag-icon"> Französisch
-            <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" class="flag-icon"> Deutsch
-            </p>
-        </section>
+<section class="guide-profile">
+    <h2>Treffen Sie Ingrid</h2>
+    <img src="images/guide1.png" alt="Ingrid - Stadtführerin" class="guide-image">
+    <p><strong>Hintergrund:</strong> Ingrid ist gebürtige Kopenhagenerin und hat eine tiefe Leidenschaft für die reiche Geschichte und lebendige Kultur ihrer Stadt. Mit über 30 Jahren Erfahrung als Stadtführerin verfügt sie über umfangreiche Kenntnisse der Sehenswürdigkeiten, versteckten Schätze und historischen Anekdoten Kopenhagens. Ingrids warme Persönlichkeit und fesselnde Erzählweise machen ihre Touren sowohl informativ als auch unterhaltsam.</p>
+    <p><strong>Spezialität:</strong> Ingrid ist auf historische und kulturelle Stadtrundgänge spezialisiert. Sie hat ein besonderes Interesse an der mittelalterlichen Geschichte Kopenhagens und teilt gerne Geschichten über die Entwicklung der Stadt im Laufe der Jahrhunderte. Ob es die architektonischen Wunder der Altstadt oder die charmanten Geschichten der lokalen Folklore sind, Ingrid erweckt die Vergangenheit mit ihren fesselnden Erzählungen zum Leben.</p>
+    <p><strong>Sprachen:</strong> 
+        <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch
+        <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch
+        <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italienisch" class="flag-icon"> Italienisch
+        <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="Französisch" class="flag-icon"> Französisch
+        <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" class="flag-icon"> Deutsch
+    </p>
+</section>
 
 <!-- Guide2: Aisha -->
 <section class="guide-profile">
     <h2>Treffen Sie Aisha</h2>
-    <img src="images/guide2.png" alt="Aisha - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Aisha, ursprünglich aus London, hat Kopenhagen in den letzten zehn Jahren zu ihrer Heimat gemacht. Mit einem reichen Hintergrund in Geschichte und einem Talent fürs Geschichtenerzählen führt Aisha seit über 10 Jahren Besucher durch die charmanten Straßen Kopenhagens. Ihr umfangreiches Wissen über die Wahrzeichen der Stadt, versteckte Schätze und historische Anekdoten, kombiniert mit ihrer warmen und einnehmenden Persönlichkeit, macht ihre Touren sowohl informativ als auch unterhaltsam.</p>
-    <p><strong>Fachgebiet:</strong> Aisha ist auf zeitgenössische und historische Stadtrundgänge spezialisiert. Sie hat ein besonderes Interesse an der modernen Entwicklung Kopenhagens sowie an seiner reichen historischen Vergangenheit. Von der innovativen Architektur der neuen Hafenbereiche bis hin zu den fesselnden Geschichten über die Wikinger-Ursprünge der Stadt bringt Aisha eine einzigartige und aufschlussreiche Perspektive in jede Tour ein. Ihre Fähigkeit, nahtlos das Alte mit dem Neuen zu verbinden, stellt sicher, dass jeder Besucher ein umfassendes Verständnis der Entwicklung Kopenhagens erhält.</p>
+    <img src="images/guide2.png" alt="Aisha - Stadtführerin" class="guide-image">
+    <p><strong>Hintergrund:</strong> Aisha, ursprünglich aus London, hat Kopenhagen in den letzten zehn Jahren zu ihrem Zuhause gemacht. Mit einem reichen Hintergrund in Geschichte und einem Talent für Geschichtenerzählen führt Aisha seit über 10 Jahren Besucher durch die charmanten Straßen Kopenhagens. Ihre umfangreichen Kenntnisse der Sehenswürdigkeiten, versteckten Schätze und historischen Anekdoten der Stadt, kombiniert mit ihrer warmen und einnehmenden Persönlichkeit, machen ihre Touren sowohl informativ als auch unterhaltsam.</p>
+    <p><strong>Spezialität:</strong> Aisha ist auf zeitgenössische und historische Stadtrundgänge spezialisiert. Sie hat ein besonderes Interesse an der modernen Entwicklung Kopenhagens sowie an seiner reichen historischen Vergangenheit. Von der innovativen Architektur der neuen Hafenbereiche bis zu den faszinierenden Geschichten über die Wikinger-Ursprünge der Stadt bietet Aisha eine einzigartige und aufschlussreiche Perspektive bei jeder Tour. Ihre Fähigkeit, Alt und Neu nahtlos zu verbinden, sorgt dafür, dass jeder Besucher ein umfassendes Verständnis der Entwicklung Kopenhagens gewinnt.</p>
     <p><strong>Sprachen:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="Französisch" class="flag-icon"> Französisch
     </p>
 </section>
-</body>
-</html>
+
 <!-- Guide3: Mei -->
 <section class="guide-profile">
     <h2>Treffen Sie Mei</h2>
-    <img src="images/guide3.png" alt="Mei - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Mei, ursprünglich aus San Francisco, hat ein reiches Erbe, das chinesische und amerikanische Kulturen verbindet. Seit 20 Jahren nennt sie Kopenhagen ihr Zuhause. Mit einem Hintergrund in Kulturwissenschaften und einer lebenslangen Leidenschaft für Geschichte führt Mei seit über 15 Jahren Besucher durch die bezaubernden Straßen Kopenhagens. Ihr tiefes Wissen über die Geschichte der Stadt, kombiniert mit ihrer warmen und einnehmenden Persönlichkeit, macht ihre Touren sowohl lehrreich als auch angenehm.</p>
-    <p><strong>Fachgebiet:</strong> Mei ist auf kulturelle und historische Stadtrundgänge spezialisiert. Sie interessiert sich besonders für die vielfältigen kulturellen Einflüsse, die Kopenhagen im Laufe der Jahrhunderte geprägt haben. Von den alten Wikingerwurzeln der Stadt bis hin zu ihrer modernen multikulturellen Landschaft bringt Mei eine einzigartige und aufschlussreiche Perspektive in jede Tour ein. Ihre Fähigkeit, historische Ereignisse mit der zeitgenössischen Kultur zu verbinden, stellt sicher, dass jeder Besucher mit einem tieferen Verständnis des reichen Erbes Kopenhagens abreist.</p>
+    <img src="images/guide3.png" alt="Mei - Stadtführerin" class="guide-image">
+    <p><strong>Hintergrund:</strong> Mei, ursprünglich aus San Francisco, hat ein reiches Erbe, das chinesische und amerikanische Kulturen verbindet. Seit 20 Jahren nennt sie Kopenhagen ihr Zuhause. Mit einem Hintergrund in Kulturwissenschaften und einer lebenslangen Leidenschaft für Geschichte führt Mei seit über 15 Jahren Besucher durch die bezaubernden Straßen Kopenhagens. Ihr tiefes Wissen über die Geschichte der Stadt, kombiniert mit ihrer warmen und einnehmenden Persönlichkeit, macht ihre Touren sowohl lehrreich als auch unterhaltsam.</p>
+    <p><strong>Spezialität:</strong> Mei ist auf kulturelle und historische Stadtrundgänge spezialisiert. Sie hat ein besonderes Interesse an den vielfältigen kulturellen Einflüssen, die Kopenhagen im Laufe der Jahrhunderte geprägt haben. Von den alten Wikingerwurzeln der Stadt bis hin zur modernen multikulturellen Landschaft bietet Mei bei jeder Tour eine einzigartige und aufschlussreiche Perspektive. Ihre Fähigkeit, historische Ereignisse mit der zeitgenössischen Kultur zu verbinden, sorgt dafür, dass jeder Besucher ein tieferes Verständnis für das reiche Erbe Kopenhagens gewinnt.</p>
     <p><strong>Sprachen:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="Mandarin" class="flag-icon"> Mandarin 
@@ -111,9 +174,9 @@
 <!-- Guide4: Yuki -->
 <section class="guide-profile">
     <h2>Treffen Sie Yuki</h2>
-    <img src="images/guide4.png" alt="Yuki - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Yuki, ursprünglich aus Tokio, lebt seit zwei Jahren als Architekturstudentin in Kopenhagen. Ihre Leidenschaft für Design und Stadtplanung gibt ihr eine einzigartige Perspektive auf die architektonische Landschaft der Stadt. Yukis Begeisterung für traditionelle und moderne Architektur, kombiniert mit ihren frischen Einblicken als Studentin, macht ihre Touren spannend und informativ.</p>
-    <p><strong>Fachgebiet:</strong> Yuki ist auf architektonische Stadtrundgänge spezialisiert. Sie interessiert sich besonders für die Mischung aus historischer und zeitgenössischer Architektur, die Kopenhagen definiert. Von den ikonischen Türmen der Altstadt bis hin zu den modernen Designs der neuen Hafenbereiche heben Yukis Touren die architektonische Entwicklung der Stadt hervor. Ihre Fähigkeit, komplexe architektonische Konzepte auf verständliche Weise zu erklären, stellt sicher, dass jeder Besucher eine tiefere Wertschätzung für die gebaute Umwelt Kopenhagens gewinnt.</p>
+    <img src="images/guide4.png" alt="Yuki - Stadtführerin" class="guide-image">
+    <p><strong>Hintergrund:</strong> Yuki, ursprünglich aus Tokio, lebt seit zwei Jahren als Architekturstudentin in Kopenhagen. Ihre Leidenschaft für Design und Stadtplanung gibt ihr eine einzigartige Perspektive auf die architektonische Landschaft der Stadt. Yukis Begeisterung für sowohl traditionelle als auch moderne Architektur, kombiniert mit ihren frischen Einsichten als Studentin, macht ihre Touren spannend und informativ.</p>
+    <p><strong>Spezialität:</strong> Yuki ist auf architektonische Stadtrundgänge spezialisiert. Sie hat ein großes Interesse an der Mischung aus historischer und zeitgenössischer Architektur, die Kopenhagen prägt. Von den ikonischen Türmen der Altstadt bis hin zu den modernen Designs der neuen Hafenbereiche heben Yukis Touren die architektonische Entwicklung der Stadt hervor. Ihre Fähigkeit, komplexe architektonische Konzepte auf verständliche Weise zu erklären, sorgt dafür, dass jeder Besucher ein tieferes Verständnis für die gebaute Umwelt Kopenhagens gewinnt.</p>
     <p><strong>Sprachen:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/jp.svg" alt="Japanisch" class="flag-icon"> Japanisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch
@@ -124,9 +187,9 @@
 <!-- Guide5: Lars -->
 <section class="guide-profile">
     <h2>Treffen Sie Lars</h2>
-    <img src="images/guide5.png" alt="Lars - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Lars, ein gebürtiger Kopenhagener, hat eine tiefe Leidenschaft für die Geschichte und Kultur seiner Stadt. Mit 28 Jahren hat er die letzten fünf Jahre damit verbracht, Besucher durch die lebhaften Straßen Kopenhagens zu führen. Mit einem Hintergrund in Kulturwissenschaften und einer Liebe zum Geschichtenerzählen bringt Lars eine Fülle von Wissen und Begeisterung in seine Touren ein.</p>
-    <p><strong>Fachgebiet:</strong> Lars ist auf kulturelle und historische Stadtrundgänge spezialisiert. Er interessiert sich besonders für die soziale und kulturelle Entwicklung Kopenhagens, von den mittelalterlichen Anfängen bis hin zum modernen Charme. Ob er das historische Viertel Nyhavn erkundet oder die zeitgenössische Architektur der Stadt, Lars' Touren bieten einen umfassenden und fesselnden Blick auf die Vergangenheit und Gegenwart Kopenhagens.</p>
+    <img src="images/guide5.png" alt="Lars - Stadtführer" class="guide-image">
+    <p><strong>Hintergrund:</strong> Lars, ein gebürtiger Kopenhagener, hat eine tief verwurzelte Leidenschaft für die Geschichte und Kultur seiner Stadt. Mit 28 Jahren führt er seit fünf Jahren Besucher durch die lebendigen Straßen Kopenhagens. Mit einem Hintergrund in Kulturwissenschaften und einer Liebe zum Geschichtenerzählen bringt Lars eine Fülle von Wissen und Begeisterung in seine Touren ein.</p>
+    <p><strong>Spezialität:</strong> Lars ist auf kulturelle und historische Stadtrundgänge spezialisiert. Er hat ein besonderes Interesse an der sozialen und kulturellen Entwicklung Kopenhagens, von den mittelalterlichen Anfängen bis zum modernen Charme der Stadt. Ob bei der Erkundung des historischen Nyhavn-Viertels oder der zeitgenössischen Architektur der Stadt, Lars' Touren bieten einen umfassenden und fesselnden Blick auf die Vergangenheit und Gegenwart Kopenhagens.</p>
     <p><strong>Sprachen:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch 
@@ -137,9 +200,9 @@
 <!-- Guide6: Marco -->
 <section class="guide-profile">
     <h2>Treffen Sie Marco</h2>
-    <img src="images/guide6.png" alt="Marco - Stadtrundgang Guide" class="guide-image">
+    <img src="images/guide6.png" alt="Marco - Stadtführer" class="guide-image">
     <p><strong>Hintergrund:</strong> Marco, ursprünglich aus Rom, lebt seit fünf Jahren in Kopenhagen. Mit 35 Jahren bringt er eine reiche kulturelle Perspektive in seine Touren ein, indem er sein italienisches Erbe mit seiner tiefen Wertschätzung für die dänische Kultur verbindet. Mit einem Hintergrund in Kunstgeschichte und einer Leidenschaft für die Erkundung urbaner Landschaften führt Marco Besucher mit Begeisterung und Fachwissen durch die Straßen Kopenhagens.</p>
-    <p><strong>Fachgebiet:</strong> Marco ist auf künstlerische und kulturelle Stadtrundgänge spezialisiert. Er interessiert sich besonders für den künstlerischen und kulturellen Austausch zwischen Italien und Dänemark und wie diese Einflüsse in der Architektur und den öffentlichen Räumen Kopenhagens widergespiegelt werden. Von der klassischen Schönheit historischer Gebäude bis hin zu den innovativen Designs zeitgenössischer Strukturen bieten Marcos Touren eine einzigartige und aufschlussreiche Erkundung des künstlerischen Erbes Kopenhagens.</p>
+    <p><strong>Spezialität:</strong> Marco ist auf Kunst- und Kulturführungen spezialisiert. Er hat ein besonderes Interesse an den künstlerischen und kulturellen Austausch zwischen Italien und Dänemark und wie sich diese Einflüsse in der Architektur und den öffentlichen Räumen Kopenhagens widerspiegeln. Von der klassischen Schönheit historischer Gebäude bis zu den innovativen Designs zeitgenössischer Strukturen bieten Marcos Touren eine einzigartige und aufschlussreiche Erkundung des künstlerischen Erbes Kopenhagens.</p>
     <p><strong>Sprachen:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italienisch" class="flag-icon"> Italienisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spanisch" class="flag-icon"> Spanisch 
@@ -150,9 +213,9 @@
 <!-- Guide7: Lukas -->
 <section class="guide-profile">
     <h2>Treffen Sie Lukas</h2>
-    <img src="images/guide7.png" alt="Lukas - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Lukas, ursprünglich aus Wien, lebt seit drei Jahren in Kopenhagen. Mit 38 Jahren bringt er eine Fülle von Erfahrung und eine einzigartige Perspektive in seine Touren ein. Mit einem Hintergrund in europäischer Geschichte und einer Leidenschaft für kulturellen Austausch führt Lukas Besucher mit Begeisterung durch die schönen Straßen Kopenhagens und teilt seine Einsichten und Geschichten.</p>
-    <p><strong>Fachgebiet:</strong> Lukas ist auf historische und kulturelle Stadtrundgänge spezialisiert. Er interessiert sich besonders für die historischen Verbindungen zwischen Österreich und Dänemark und wie diese Einflüsse in der Architektur und den kulturellen Wahrzeichen Kopenhagens widergespiegelt werden. Von der Pracht der königlichen Paläste bis zum Charme versteckter Höfe bieten Lukas' Touren eine reiche und fesselnde Erkundung des historischen und kulturellen Erbes Kopenhagens.</p>
+    <img src="images/guide7.png" alt="Lukas - Stadtführer" class="guide-image">
+    <p><strong>Hintergrund:</strong> Lukas, ursprünglich aus Wien, lebt seit drei Jahren in Kopenhagen. Mit 38 Jahren bringt er eine Fülle von Erfahrung und eine einzigartige Perspektive in seine Touren ein. Mit einem Hintergrund in europäischer Geschichte und einer Leidenschaft für den kulturellen Austausch führt Lukas Besucher mit Begeisterung durch die schönen Straßen Kopenhagens und teilt seine Einsichten und Geschichten.</p>
+    <p><strong>Spezialität:</strong> Lukas ist auf historische und kulturelle Stadtrundgänge spezialisiert. Er hat ein besonderes Interesse an den historischen Verbindungen zwischen Österreich und Dänemark und wie sich diese Einflüsse in der Architektur und den kulturellen Wahrzeichen Kopenhagens widerspiegeln. Von der Pracht der königlichen Paläste bis zum Charme versteckter Höfe bieten Lukas' Touren eine reiche und fesselnde Erkundung des historischen und kulturellen Erbes Kopenhagens.</p>
     <p><strong>Sprachen:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="Deutsch" class="flag-icon"> Deutsch 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch 
@@ -163,16 +226,16 @@
 <!-- Guide8: Erik -->
 <section class="guide-profile">
     <h2>Treffen Sie Erik</h2>
-    <img src="images/guide8.png" alt="Erik - Stadtrundgang Guide" class="guide-image">
-    <p><strong>Hintergrund:</strong> Erik, ursprünglich aus Oslo, lebt seit 38 Jahren in Kopenhagen. Mit 62 Jahren bringt er ein Leben voller Erfahrung und ein tiefes Verständnis für die Geschichte und Kultur der Stadt mit. Mit einem Hintergrund in Skandinavistik und einer Leidenschaft für das Geschichtenerzählen führt Erik seit Jahrzehnten Besucher durch die Straßen Kopenhagens und teilt sein umfangreiches Wissen und seine fesselnden Geschichten.</p>
-    <p><strong>Fachgebiet:</strong> Erik ist auf historische und kulturelle Stadtrundgänge spezialisiert. Er interessiert sich besonders für die skandinavischen Einflüsse auf die Entwicklung Kopenhagens und wie diese sich in der Architektur und den kulturellen Wahrzeichen der Stadt widerspiegeln. Von den historischen Schlössern bis zu den modernen urbanen Räumen bieten Eriks Touren eine umfassende und fesselnde Erkundung des reichen Erbes Kopenhagens.</p>
+    <img src="images/guide8.png" alt="Erik - Stadtführer" class="guide-image">
+    <p><strong>Hintergrund:</strong> Erik, ursprünglich aus Oslo, lebt seit 38 Jahren in Kopenhagen. Mit 62 Jahren bringt er ein Leben voller Erfahrung und ein tiefes Verständnis für die Geschichte und Kultur der Stadt mit. Mit einem Hintergrund in skandinavischen Studien und einer Leidenschaft für das Geschichtenerzählen führt Erik seit Jahrzehnten Besucher durch die Straßen Kopenhagens und teilt sein umfangreiches Wissen und seine fesselnden Geschichten.</p>
+    <p><strong>Spezialität:</strong> Erik ist auf historische und kulturelle Stadtrundgänge spezialisiert. Er hat ein besonderes Interesse an den skandinavischen Einflüssen auf die Entwicklung Kopenhagens und wie sich diese in der Architektur und den kulturellen Wahrzeichen der Stadt widerspiegeln. Von den historischen Schlössern bis zu den modernen urbanen Räumen bieten Eriks Touren eine umfassende und fesselnde Erkundung des reichen Erbes Kopenhagens.</p>
     <p><strong>Sprachen:</strong> 
         <img src="https://flagicons.lipis.dev/flags/4x3/no.svg" alt="Norwegisch" class="flag-icon"> Norwegisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Dänisch" class="flag-icon"> Dänisch 
         <img src="https://flagicons.lipis.dev/flags/4x3/gb.svg" alt="Englisch" class="flag-icon"> Englisch
     </p>
 </section>
-       <!-- Tour buchen -->
+<!-- Tour buchen -->
 <section id="book">      
     <div class="spacer"></div>
     <h2>Tour buchen</h2>
@@ -188,12 +251,14 @@
             <label for="email">Ihre E-Mail:</label>
             <input type="email" id="email" name="email" required>
         </div>
+
         <div class="form-group">
-            <label for="tour-date">Tour-Datum:</label>
+            <label for="tour-date">Tourdatum:</label>
             <input type="date" id="tour-date" name="tour-date" required>
         </div>
+
         <div class="form-group">
-            <label for="tour-time">Tour-Startzeit:</label>
+            <label for="tour-time">Tourstartzeit:</label>
             <select id="tour-time" name="tour-time" required>
                 <option value="">--Zeit auswählen--</option>
                 <option value="07:00">07:00</option>
@@ -214,10 +279,11 @@
                 <option value="22:00">22:00</option>
             </select>
         </div>
+
         <div class="form-group">
             <label for="guide">Bevorzugter Guide:</label>
             <select id="guide" name="guide" required>
-                <option value="">--Bitte bevorzugten Guide auswählen--</option>
+                <option value="">--Bitte wählen Sie einen bevorzugten Guide--</option>
                 <option value="guide1">Ingrid</option>
                 <option value="guide2">Aisha</option>
                 <option value="guide3">Mei</option>
@@ -237,9 +303,12 @@
     <div class="spacer"></div> <br>
     <div class="spacer"></div> 
     <h2>Kontaktieren Sie uns</h2>
-    <p>Adresse: Amagertorv 6, 1160 København, E-Mail: mail@copenstory.com, Telefon: +45 98765432</p>
+    <p>Adresse: Amagertorv 6, 1160 Kopenhagen, E-Mail: mail@copenstory.com, Telefon: +45 98765432</p>
 </section>
 
 <footer>
-    <p>&copy; 2024 Copenstory - Kopenhagen Stadtrundgänge. Alle Rechte vorbehalten.</p>
+    <p>&copy; 2024 Copenstory - Kopenhagener Stadtrundgänge. Alle Rechte vorbehalten.</p>
 </footer>
+
+</body>
+</html>
