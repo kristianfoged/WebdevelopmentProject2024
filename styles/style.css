@@ -8,8 +8,9 @@ body {
     padding-top: 12em; /* Adjust this value based on the height of your header */
 }
 
+
 :root {
-    --breakpoint-small: 600px; /* Jeg vil gerne kunne styre skiftet i px kun et sted 
+    --breakpoint-small: 500px;  Jeg vil gerne kunne styre skiftet i px kun et sted 
     Giver fejl i validering af CCS, og CoPilot foreslår at variable sættes i preprocessor, som er uden for scope her.
 
     Using :root to define custom properties (CSS variables) is a valid and widely accepted practice in modern CSS. 
@@ -17,7 +18,7 @@ body {
     To ensure your CSS validates correctly, you can use a preprocessor like Sass or Less, 
     which allows you to define variables and reuse them throughout your CSS.
     Here’s how you can do it with Sass:    Define the variable:$breakpoint-small: 600px;    */
-    --breakpoint-tiny: 500px;
+    --breakpoint-tiny: 400px;
 
 }
 
@@ -68,7 +69,7 @@ header {
 
 .main-header {
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 20% 60% 20%;
     align-items: center;
     gap: 0.2em; /* Adjust the gap as needed */
 }
@@ -79,15 +80,16 @@ header {
     height: 100%;
     max-height: 5em; 
     margin-right: 0.1em; 
-    justify-self: right; /* Center horizontally */
+    justify-self: right; /*  horizontally */
     align-self: center; /* Center vertically */
 }
 
-@media (max-width: var(--breakpoint-small)) {
+@media (max-width: 500px) {
     .logo_left {
-        height: 75%;
-        max-height: 1em; 
-        padding: 0.1em; /* Adjust padding for smaller screens */
+        grid-column: 1;
+        max-width: 3em; 
+        max-height: 3em; 
+        margin-left: 0.1em; 
         flex-wrap: nowrap;
         justify-self: right; /* Center horizontally */
         align-self: center; /* Center vertically */
@@ -100,15 +102,18 @@ header {
     height: 100%;
     max-height: 5em; 
     margin-right: 0.1em; 
+    justify-self: left; /*  horizontally */
+    align-self: center; /* Center vertically */
 }
 
-@media (max-width: var(--breakpoint-small)) {
+@media (max-width: 500px) {
     .logo_right {
-        height: 75%;
-        max-height: 1em; 
-        padding: 0.1em; /* Adjust padding for smaller screens */
+        grid-column: 3;
+        max-width: 3em; 
+        max-height: 3em; 
+        margin-left: 0.1em; 
         flex-wrap: nowrap;
-        justify-self: right; /* Center horizontally */
+        justify-self: left; /* Center horizontally */
         align-self: center; /* Center vertically */
     }
 }
@@ -130,9 +135,9 @@ header {
 }
 
 
-@media (max-width: var(--breakpoint-tiny)) {
+@media (max-width: 500px) {
     .main_title {
-        font-size: 1em;
+        font-size: 1.5em;
     }
 }
 
@@ -142,9 +147,9 @@ header {
     font-style: italic; /* This makes the subtitle italic */
 }
 
-@media (max-width: var(--breakpoint-small)) {
+@media (max-width:  500px) {
     .sub_title {
-        font-size: 0.5em;
+        font-size: 0.7em;
     }
 }
 
