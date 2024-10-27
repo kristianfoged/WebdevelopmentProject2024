@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Copenstory - Copenhagen walking tours</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -29,6 +30,7 @@
             <nav>
                 <ul class="horizontal_nav">
                     <li><a href="index.html">Tours</a></li>
+                    <li><a href="#sights">Sights</a></li>
                     <li><a href="#guides">Meet the guides</a></li>
                     <li><a href="#book">Book a tour</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -37,28 +39,93 @@
         </div>
     </header>
    
-        <section id="services">
-            <h2>Tours</h2>
-            <p>At Copenstory, we offer a range of engaging and informative walking tours designed to showcase the best of Copenhagen. Our services include:</p>
-            <ul class="service-list">
-                <li><strong>Historical Walking Tours:</strong> 
-                    <br> Explore the rich history of Copenhagen with our expert guides. 
-                    <br> Visit iconic landmarks, learn about the city's medieval past, and hear fascinating stories that bring history to life.</li>
-                <li><strong>Cultural Walking Tours:</strong> 
-                    <br>Discover the vibrant culture of Copenhagen. 
-                    <br>Our guides will take you through the city's artistic and cultural hotspots, including museums, galleries, and theaters.</li>
-                <li><strong>Architectural Walking Tours:</strong> 
-                    <br>For architecture enthusiasts, our tours highlight the blend of historic and modern architecture that defines Copenhagen. 
-                    <br>See stunning buildings and learn about the city's architectural evolution.</li>
-                <li><strong>Custom Private Tours:</strong> 
-                    <br>Tailor your experience with our custom private tours. 
-                    <br>Whether you have specific interests or a particular itinerary in mind, our guides will create a personalized tour just for you.</li>
-                <li><strong>Family-Friendly Tours:</strong> 
-                    <br>Enjoy a fun and educational experience with our family-friendly tours. 
-                    <br>Designed to engage visitors of all ages, these tours include interactive activities and stories that captivate children and adults alike.</li>
-            </ul>
-        
-        </section>
+    <section id="services">
+        <h2>Tours</h2>
+        <p>At Copenstory, we offer a range of engaging and informative walking tours designed to showcase the best of Copenhagen. Our services include:</p>
+        <ul class="service-list">
+            <li><strong>Historical Walking Tours:</strong> 
+                <br> Explore the rich history of Copenhagen with our expert guides. 
+                <br> Visit iconic landmarks, learn about the city's medieval past, and hear fascinating stories that bring history to life.</li>
+            <li><strong>Cultural Walking Tours:</strong> 
+                <br>Discover the vibrant culture of Copenhagen. 
+                <br>Our guides will take you through the city's artistic and cultural hotspots, including museums, galleries, and theaters.</li>
+            <li><strong>Architectural Walking Tours:</strong> 
+                <br>For architecture enthusiasts, our tours highlight the blend of historic and modern architecture that defines Copenhagen. 
+                <br>See stunning buildings and learn about the city's architectural evolution.</li>
+            <li><strong>Custom Private Tours:</strong> 
+                <br>Tailor your experience with our custom private tours. 
+                <br>Whether you have specific interests or a particular itinerary in mind, our guides will create a personalized tour just for you.</li>
+            <li><strong>Family-Friendly Tours:</strong> 
+                <br>Enjoy a fun and educational experience with our family-friendly tours. 
+                <br>Designed to engage visitors of all ages, these tours include interactive activities and stories that captivate children and adults alike.</li>
+        </ul>
+    </section>
+
+
+<!-- Sights map -->
+
+<section id="sights">      
+    <div class="spacer"></div>
+    <h2>Top Tourist Attractions in Copenhagen</h2>
+</section>
+
+    <section id="map-section">
+       
+        <div id="map"></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+ // Initialize the map
+var map = L.map('map').setView([55.6761, 12.5683], 13);
+
+// Add OpenStreetMap tiles
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Define the attractions with categories and colors
+var attractions = [
+    ["<strong>Tivoli Gardens</strong><br>One of the world's oldest amusement parks, offering rides, games, and beautiful gardens.", 55.6736, 12.5683, "red"],
+    ["<strong>The Little Mermaid</strong><br>A famous bronze statue inspired by Hans Christian Andersen's fairy tale, located by the waterfront.", 55.6929, 12.5993, "blue"],
+    ["<strong>Nyhavn</strong><br>A 17th-century waterfront, canal, and entertainment district, known for its colorful buildings and historic ships.", 55.6794, 12.5900, "blue"],
+    ["<strong>Christiansborg Palace</strong><br>The seat of the Danish Parliament, the Supreme Court, and the Prime Minister's Office, with royal reception rooms and a tower offering panoramic views.", 55.67623, 12.580406, "red"],
+    ["<strong>Rosenborg Castle</strong><br>A Renaissance castle housing the Danish crown jewels and regalia, surrounded by the King's Garden.", 55.6854, 12.5779, "red"],
+    ["<strong>Amalienborg Palace</strong><br>The home of the Danish royal family, consisting of four identical classical palace façades around an octagonal courtyard.", 55.6848, 12.5938, "red"],
+    ["<strong>The National Museum of Denmark</strong><br>The largest museum of cultural history in Denmark, showcasing artifacts from the Stone Age to the modern era.", 55.6743, 12.5769, "green"],
+    ["<strong>The Round Tower</strong><br>Europe's oldest functioning observatory, offering a unique spiral ramp and a panoramic view of Copenhagen.", 55.6829, 12.5735, "red"],
+    ["<strong>Copenhagen Zoo</strong><br>One of the oldest zoos in Europe, home to a wide variety of animals and known for its Elephant House designed by Norman Foster.", 55.6728, 12.5214, "green"],
+    ["<strong>The National Gallery of Denmark (SMK)</strong><br>The country's largest art museum, featuring collections of Danish and international art from the past seven centuries.", 55.6886, 12.5776, "green"],
+    ["<strong>Frederiksborg Castle</strong><br>A stunning Renaissance castle located in Hillerød, featuring beautiful gardens and a museum of national history.", 55.9354, 12.3001, "red"],
+    ["<strong>Kronborg Castle</strong><br>Known as Elsinore in Shakespeare's Hamlet, this UNESCO World Heritage site is a magnificent Renaissance castle.", 56.0381, 12.6136, "red"],
+    ["<strong>Ny Carlsberg Glyptotek</strong><br>An art museum with a vast collection of sculptures and paintings, including works by Rodin and Gauguin.", 55.6726, 12.5724, "green"],
+    ["<strong>Botanical Garden</strong><br>A beautiful garden with a large collection of plants, greenhouses, and a butterfly house.", 55.6861, 12.5734, "green"],
+    ["<strong>Strøget</strong><br>One of Europe's longest pedestrian streets, offering a variety of shops, cafes, and street performances.", 55.6761, 12.5683, "blue"],
+    ["<strong>Freetown Christiania</strong><br>A unique and controversial neighborhood known for its alternative lifestyle and vibrant art scene.", 55.6742, 12.5971, "blue"],
+    ["<strong>Den Blå Planet</strong><br>The National Aquarium Denmark, featuring a wide variety of marine life and interactive exhibits.", 55.6505, 12.6509, "green"],
+    ["<strong>Experimentarium</strong><br>A science center with interactive exhibits and activities for all ages, located in Hellerup.", 55.7254, 12.5761, "green"],
+    ["<strong>Amager Strandpark</strong><br>A popular beach park offering swimming, sunbathing, and various water sports.", 55.6625, 12.6216, "green"],
+    ["<strong>Church of Our Saviour</strong><br>Famous for its corkscrew-shaped spire with an external staircase offering panoramic views of the city.", 55.6731, 12.5931, "red"],
+    ["<strong>Rundetårn</strong><br>A 17th-century tower and observatory with a unique spiral ramp and panoramic views of Copenhagen.", 55.6829, 12.5735, "red"],
+    ["<strong>King's Garden</strong><br>The oldest royal garden in Denmark, located next to Rosenborg Castle, perfect for a relaxing stroll.", 55.6854, 12.5779, "green"],
+    ["<strong>Frederik's Church (The Marble Church)</strong><br>A beautiful baroque church known for its impressive dome and stunning architecture.", 55.6844, 12.5919, "red"],
+    ["<strong>Tycho Brahe Planetarium</strong><br>A planetarium offering educational shows and exhibits about astronomy and space exploration.", 55.6736, 12.5584, "green"],
+    ["<strong>Carlsberg Brewery</strong><br>Visit the historic brewery to learn about the brewing process and enjoy a tasting session.", 55.6658, 12.5431, "blue"]
+];
+
+// Add markers for the attractions with different colors
+attractions.forEach(function(attraction) {
+    var color = attraction[3];
+    var marker = L.circleMarker([attraction[1], attraction[2]], {
+        color: color,
+        radius: 8,
+        fillOpacity: 0.8
+    }).addTo(map);
+    marker.bindPopup(attraction[0]);
+});
+    </script>
+
+<!-- Meet the guides -->
 
         <section id="guides">      
             <div class="spacer"></div>
