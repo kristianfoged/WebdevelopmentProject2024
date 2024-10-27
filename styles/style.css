@@ -201,15 +201,17 @@ nav {
 
 /* TOURS LIST */
 .service-list {
-    width: 100%;
+    width: 90%;
     list-style-type: none; /* Remove default bullets */
-    padding: 3%;
+    padding: 2% 5%; /* Reduce padding to the sides */
+    text-align: center; /* Center text */
 }
 
 .service-list li {
-    margin-bottom: 0.2rem; /* Add space between items */
-    padding: 3%;
-    position: relative;
+    margin-bottom: 0.5rem; /* Add space between items */
+    width: 90%;
+    padding: 2% 5%; /* Reduce padding inside items */
+    text-align: center; /* Center text */
 }
 
 /* GUIDES */
