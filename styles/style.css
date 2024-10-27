@@ -156,7 +156,8 @@ header {
 
 /* navigation bar */
 nav {
-    display: grid;
+    display: flex; /* Use Flexbox for the nav */
+    justify-content: center; /* Center the nav items */
     width: 100%; /* Ensure the nav spans the full width */
     background-color: #f4f4f4; /* Same background color as the header */
 }
@@ -166,7 +167,7 @@ nav {
     padding: 0; /* Remove default padding */
     margin: 0; /* Remove default margin */
     display: flex; /* Use Flexbox to arrange items horizontally */
-    justify-content: space-around; /* Distribute items evenly */
+    justify-content: center; /* Center the items within the nav */
     flex-wrap: nowrap; /* Prevent items from wrapping */
     white-space: nowrap; /* Force items to stay on a single line */
 }
